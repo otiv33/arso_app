@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/weatherDay.dart';
+import '../models/weatherDayData.dart';
 
 class WeekTab extends StatefulWidget {
   const WeekTab({super.key});

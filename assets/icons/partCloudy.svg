@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 38 38" style="enable-background:new 0 0 38 38;" xml:space="preserve">
+<g id="partCloudy">
+	<linearGradient id="partCloudy_1_" gradientUnits="userSpaceOnUse" x1="16.4992" y1="23.9694" x2="25.9992" y2="4.9694">
+		<stop  offset="0" style="stop-color:#F9EF61"/>
+		<stop  offset="0.3078" style="stop-color:#F9D65E"/>
+		<stop  offset="0.7508" style="stop-color:#F9B85B"/>
+		<stop  offset="1" style="stop-color:#F9AC5A"/>
+	</linearGradient>
+	<path style="opacity:0.4;fill:url(#partCloudy_1_);" d="M19,3.167C10.256,3.167,3.168,10.256,3.168,19c0,2.253,0.478,4.393,1.326,6.333
+		h29.011c0.848-1.941,1.326-4.08,1.326-6.333C34.832,10.256,27.744,3.167,19,3.167z"/>
+	<linearGradient id="partCloudy_3_" gradientUnits="userSpaceOnUse" x1="15.2882" y1="24.8545" x2="24.0428" y2="11.0166">
+		<stop  offset="0" style="stop-color:#F9EF61"/>
+		<stop  offset="0.3078" style="stop-color:#F9D65E"/>
+		<stop  offset="0.7508" style="stop-color:#F9B85B"/>
+		<stop  offset="1" style="stop-color:#F9AC5A"/>
+	</linearGradient>
+	<path style="fill:url(#partCloudy_3_);" d="M18.989,10.373c-4.77,0-8.637,3.867-8.637,8.638c0,2.5,1.069,4.746,2.766,6.323H24.86
+		c1.698-1.577,2.766-3.823,2.766-6.323C27.626,14.24,23.759,10.373,18.989,10.373z"/>
+	<g>
+
+			<image style="overflow:visible;opacity:0.3;" width="33" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAASCAYAAAA+PQxvAAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAfFJREFUeNq0lllP4zAUhes0pUAY
+YFg1AoblBTFP8/9/zrAvRXSgSyBNOEaf0cUKolKKpU9O7Mj35NxrJ671dXM191U0VrUaNvfFXCAB
+FwUvoTLMVIgfb0NHzNG3jSMT8SKe6SdQzUpIQkAffFEsiR8iE13mvQu5GIhH8SRGiIrFTJVGVyMi
+FQtiWWyIbbEp1hDWJthQ3ItbcSN6CMqZt0HLmlR+KsQhwgf7KXbEgdjneoM5/0yBkDtxIU7FOaIG
+pKo0Igrcsmks64SEmujy5r/FsTgRR+KXWBXzJjVj8SCuEfJPXIk+AUsjYkwK+/RjxstYSEIx+nTs
+ij/iL70XtW7cCMUaXOmTmisceTJCJlw/8ox37ZKUjljjLU2p2aIdCnOL4Idij/uM+cQI6UAXkWvm
+bSfGkRznzlinIj2FrZk0ciRjwS36DLEtsz3jAy28QHC0iM4W78h/NsALDj7EtZRGNTLHG3Z4YGS2
+c91Wt7siPtxCC+tmCF2i1j6smUaLFgTvkc8hiyRTnEnVJ2MV6bnHmbzu4HPGjUWKcg82TWpcg89I
+qIkhxXwKPcbeRNnvSbBvha0aF2gTISViBtRHn+vn4Jo9RxLzXeniRGKENhFSmTMlNwfb+ynratKU
+GFoNRUxd1G6Kf49ZtZn/w3xLexVgABP4vKSV5PTwAAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 -1.9254 13.5071)">
+		</image>
+		<g>
+			<path style="fill:#FFFFFF;" d="M1.67,25.333c0-4.014,3.475-7.272,7.014-7.272c2.894,0,5.435,1.491,6.93,4.227
+				c0,0,1.619-1.554,4.053-1.554c3.12,0,5.131,2.935,5.234,4.599H1.67z"/>
+		</g>
+	</g>
+</g>
+</svg>

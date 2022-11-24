@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../models/weatherDayData.dart';
 
-class WeatherDay extends StatefulWidget {
+class WeatherDay extends StatelessWidget {
   late WeatherDayData _data;
+
   WeatherDay(WeatherDayData data, {super.key}) {
-    super.key;
-    _data = data;
-  }
-
-  @override
-  State<WeatherDay> createState() => _WeatherDay(_data);
-}
-
-class _WeatherDay extends State<WeatherDay> {
-  late WeatherDayData _data;
-  _WeatherDay(data) {
     _data = data;
   }
 
@@ -117,15 +108,4 @@ class _WeatherDay extends State<WeatherDay> {
           ],
         ));
   }
-}
-
-class WeatherDayData {
-  WeatherDayData(this.day, this.date, this.report, this.weatherIcon,
-      this.maxTemp, this.minTemp);
-  String day = "";
-  String date = "";
-  String report = "";
-  String weatherIcon = "";
-  String maxTemp = "";
-  String minTemp = "";
 }

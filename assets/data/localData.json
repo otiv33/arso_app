@@ -1,0 +1,8 @@
+{
+    "cityName" : "Ljubljana",
+    "defaultCity" : "Maribor",
+    "favouriteCities" : [
+        "Maribor",
+        "Hočko Pohorje"
+    ] 
+}

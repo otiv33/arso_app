@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 38 38" style="enable-background:new 0 0 38 38;" xml:space="preserve">
+<g id="clear_night">
+	<linearGradient id="clear_night_1_" gradientUnits="userSpaceOnUse" x1="3.4694" y1="32.9205" x2="33.2948" y2="6.1902">
+		<stop  offset="0" style="stop-color:#FAEC21"/>
+		<stop  offset="1" style="stop-color:#29A9E0;stop-opacity:0.4"/>
+	</linearGradient>
+	<circle style="opacity:0.4;fill:url(#clear_night_1_);" cx="19.002" cy="19" r="15.832"/>
+	<linearGradient id="clear_night_3_" gradientUnits="userSpaceOnUse" x1="11.7345" y1="25.6958" x2="25.1154" y2="13.3686">
+		<stop  offset="0" style="stop-color:#C6CF67"/>
+		<stop  offset="0.1246" style="stop-color:#D1C85D"/>
+		<stop  offset="0.4347" style="stop-color:#E7BA4A"/>
+		<stop  offset="0.7319" style="stop-color:#F4B13F"/>
+		<stop  offset="1" style="stop-color:#F9AE3B"/>
+	</linearGradient>
+	<path style="fill:url(#clear_night_3_);" d="M25.333,19C21.835,19,19,16.165,19,12.667c0-0.802,0.155-1.566,0.427-2.272
+		c-0.145-0.007-0.289-0.022-0.436-0.022c-4.77,0-8.637,3.867-8.637,8.638c0,4.77,3.867,8.638,8.637,8.638
+		c4.77,0,8.637-3.867,8.637-8.638c0-0.148-0.015-0.292-0.022-0.438C26.899,18.845,26.135,19,25.333,19z"/>
+</g>
+</svg>

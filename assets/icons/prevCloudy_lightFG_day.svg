@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 38 38" style="enable-background:new 0 0 38 38;" xml:space="preserve">
+ <g>
+ 	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="16.4992" y1="23.9694" x2="25.9992" y2="4.9694">
+ 		<stop offset="0" style="stop-color:#F9EF61"/>
+ 		<stop offset="0.3078" style="stop-color:#F9D65E"/>
+ 		<stop offset="0.7508" style="stop-color:#F9B85B"/>
+ 		<stop offset="1" style="stop-color:#F9AC5A"/>
+ 	</linearGradient>
+ 	<path style="opacity:0.4;fill:url(#SVGID_1_);" d="M19,3.167C10.256,3.167,3.168,10.256,3.168,19c0,2.253,0.478,4.393,1.326,6.333   h29.011c0.848-1.941,1.326-4.08,1.326-6.333C34.832,10.256,27.744,3.167,19,3.167z"/>
+ 	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="15.2882" y1="24.8545" x2="24.0428" y2="11.0166">
+ 		<stop offset="0" style="stop-color:#F9EF61"/>
+ 		<stop offset="0.3078" style="stop-color:#F9D65E"/>
+ 		<stop offset="0.7508" style="stop-color:#F9B85B"/>
+ 		<stop offset="1" style="stop-color:#F9AC5A"/>
+ 	</linearGradient>
+ 	<path style="fill:url(#SVGID_2_);" d="M18.989,10.373c-4.77,0-8.637,3.867-8.637,8.638c0,2.5,1.069,4.746,2.766,6.323H24.86   c1.698-1.577,2.766-3.823,2.766-6.323C27.626,14.24,23.759,10.373,18.989,10.373z"/>
+ 	<g>
+ 		
+ 			<image style="overflow:visible;opacity:0.35;" width="25" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAACXBIWXMAAAsSAAALEgHS3X78AAAA GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAflJREFUeNrEldlOwzAQRdM0JV2A AmKT4AGQQOL/PwgECBBrgdJSGjeMpeNqGOIUnoh05cSx586dxW4ki59G5Ls045+MVP3zY8qo15cK s0WkjZo5b7ypkDGXYtAJCuAgm8XIqsISFLQEbUGHsc1cisGpYCz4YPxkzimllUSBxHufC5YF64IN QZ/vHGUOglfBi+CZ8V0wUSrnT2YUpRjzhrcF+2CLuQ6OeCMjwUBwL7gRXPM+QKHO3ZxIh2sZkiPB ieBQsANRW4VujIo7wQX7Mv45la/SKmpiaB0Vx4JTiDYx1MKpknwMUbvKP523qS6OzOSmA9EeBAe8 9wlpUxF5r3uCLnamKHxiHJOrH6ELRbCKgh2Vm65So/soVKGjMHYFl4JbyCZBVWYqLiN8PULVVZWW RtohZ713aA1H2yZaZWY2pSxogaYhqGrGsCcn9Llp7sryTkxoQgW5CEmpKsz2YxLro2C4ILETqmfE XBohKlgzUieEs8dRZg7IAuM+kQ/kaKwKoREhGtK096biZlWKHCpe2NTlSOmpxNYp8o17xjhk/lvD lirWXs2j4Byvrkz/JBXXRHBwAIkv7TdCOA+fvXOWULACbJnGCqbAsSEkI3OS/zi9w72zZMo7qSHS ZIUphlndfZTW3KqLWqG0h+miq/y3BDGF//d8CTAA8Z+6xpfRkFwAAAAASUVORK5CYII=" transform="matrix(1 0 0 1 14.8791 10.2071)">
+ 		</image>
+ 		<g>
+ 			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="21.3298" y1="26.7179" x2="32.7093" y2="17.3232">
+ 				<stop offset="0" style="stop-color:#838181"/>
+ 				<stop offset="1" style="stop-color:#C9C9C9"/>
+ 			</linearGradient>
+ 			<path style="fill:url(#SVGID_3_);" d="M27.131,15.195c-3.999,0-7.241,3.242-7.241,7.242c0,1.031,0.218,2.009,0.607,2.897h13.269     c0.388-0.888,0.607-1.866,0.607-2.897C34.372,18.437,31.13,15.195,27.131,15.195z"/>
+ 		</g>
+ 	</g>
+ 	<g>
+ 		
+ 			<image style="overflow:visible;opacity:0.35;" width="28" height="23" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAYCAYAAAAGXva8AAAACXBIWXMAAAsSAAALEgHS3X78AAAA GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhFJREFUeNrMlltP20AQhbO2wUkK FAJIodwERTwg+tKH/v9fwWPVUhAgLuKShCSAw9nqczVd4hQbHmrpUxx7M2dn9uxsXK3c5Qqej94j SDgmJwJnxDIYGSqLWqEpkYoG9zFjnsSDuBcD7rN/ibsJz2MEvNCcaIlFMSumGTcUd+JSXIlbJvDA hEavFY2M2LxYEqtiQ6whXmdsH7EjcSiOxbm4ET3xSOYTRSOy8Jm1xabYEtvct3lnM/XZnYqf4jv8 4NktWf+VcRJMYIqgPqs9sS92yHCZ0qbBmg6YjK/GulgRM7z3mXbCUifBGjYI4AW/IeoFF4yJQvf6 UjeZ7AITqyHWYVJZkagP+JEy7sNnAqVGzBU4PCFGDXOdjCnxb+HYrGWTEn0RX8UuJa0zLiowXriH Y8rZwdXXOPpPiaOgtIusyyecm04QK9pmDRy/iTdaxHHWrfkPplmPFutTRnCcGdv4YYmJxHksK5pv lzqfcUlBGyc1DWWGeC8yrQXrElUQDMtsE4iKRN/zckboRQJJcDxluCwL91aJy548Y+MkZuATbc33 zC59tUo1Mn7bJdawqCNlvLxmU/+iJM2Koj1inBBzaBt/YsrRo4Mc8M6fGB8qinYRPCBmz5Y5CUpy xvcL0xxcCSfnrW5AhmfQt5m64FhLTAOvuldDf/TDc9UVWP2te3U0yb3uDX/YXiv+f1zPAgwAaO2W fwz5Mr0AAAAASUVORK5CYII=" transform="matrix(1 0 0 1 -1.2209 7.1071)">
+ 		</image>
+ 		<g>
+ 			<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="4.98" y1="27.1762" x2="20.126" y2="14.672">
+ 				<stop offset="0" style="stop-color:#666666"/>
+ 				<stop offset="0.1816" style="stop-color:#717171"/>
+ 				<stop offset="0.5033" style="stop-color:#8F8F8F"/>
+ 				<stop offset="0.925" style="stop-color:#C0C0C0"/>
+ 				<stop offset="1" style="stop-color:#C9C9C9"/>
+ 			</linearGradient>
+ 			<path style="fill:url(#SVGID_4_);" d="M12.702,11.839c-5.323,0-9.638,4.315-9.638,9.639c0,1.372,0.291,2.674,0.807,3.856h17.661     c0.516-1.181,0.807-2.484,0.807-3.856C22.34,16.155,18.025,11.839,12.702,11.839z"/>
+ 		</g>
+ 	</g>
+ 	<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="1.67" y1="21.6975" x2="24.9006" y2="21.6975">
+ 		<stop offset="0" style="stop-color:#666666"/>
+ 		<stop offset="0.1851" style="stop-color:#6B6B6B"/>
+ 		<stop offset="0.3935" style="stop-color:#787878"/>
+ 		<stop offset="0.6132" style="stop-color:#8F8F8F"/>
+ 		<stop offset="0.8391" style="stop-color:#AEAEAE"/>
+ 		<stop offset="1" style="stop-color:#C9C9C9"/>
+ 	</linearGradient>
+ 	<path style="fill:url(#SVGID_5_);" d="M1.67,25.333c0-4.014,3.475-7.272,7.014-7.272c2.894,0,5.435,1.491,6.93,4.227   c0,0,1.619-1.554,4.053-1.554c3.12,0,5.131,2.935,5.234,4.599H1.67z"/>
+ 	<g>
+ 		
+ 			<image style="overflow:visible;opacity:0.25;" width="28" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAACXBIWXMAAAsSAAALEgHS3X78AAAA GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdRJREFUeNqkletOwzAMhZM2HbsC AwSDPyDe/8WGxjqhbaz0EhzpWPKspBSt0lGmLvEXX2pbM/yxA/b4S41YsdqeM16svg9u/4AFZUoS LI13Sj4GtT2wYDwnOVIBObyzyruW1JBqIQnuBTIsGB+RJqQpNAY4Fx62AJxIR9IBvyv8dwa1PbAr 0px0S7rDugDUCWADwBdpR9pi3QPayPC6SM5yeBZgD6QV6Zn0COgUXma4fQ3PStIaF7Iqny1DnPKQ vQtGl4C9kV4BvRdA9rBGGDeIQC7CXOM3F5V3kYoM3s1g/AWwdwCXyGkhvGjg4QLv2eM91h/sMbGQ ynAG408ArRBSzmGuKnSMy9bI5RYe7+B9pj3UwBC2a9INNEcRuUgDkEU2xaXmiNII/2V8xiW+uxHE oeNK9ApqRFhPoiLZVi7SZbWHRhnhYihxcC+qM/bhy0/jgNy1uuM4dZBv+42Da7wrEbI80Sw6AEKR fJI+AD+lvkMvblphc4HNJSrzLBfqotwAKkRiCx3xvuO9ehpw8idI+kx0lkxNDZOIToWQHgCsBNTb RMMuVMPug8lR1EWaeCP7qY008tg4sgNmp4RqmRjQJIatNf97fGIgDxrAlzzRif8rwAAxYrE8RYpq FgAAAABJRU5ErkJggg==" transform="matrix(1 0 0 1 -4.3209 12.0071)">
+ 		</image>
+ 		<g>
+ 			<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="1.6699" y1="21.6733" x2="16.3086" y2="21.6733">
+ 				<stop offset="0" style="stop-color:#666666"/>
+ 				<stop offset="1" style="stop-color:#C9C9C9"/>
+ 			</linearGradient>
+ 			<path style="fill:url(#SVGID_6_);" d="M16.309,25.333c0-4.043-3.277-7.32-7.319-7.32s-7.319,3.277-7.319,7.32H16.309z"/>
+ 		</g>
+ 	</g>
+</g>
+<g id="lightFG" style="opacity:0.6;"> <linearGradient id="lightFG_1_" gradientUnits="userSpaceOnUse" x1="18.8985" y1="3442.6033" x2="19.1146" y2="3449.3049" gradientTransform="matrix(1 0 0 -1 0 3467.3867)"> <stop offset="0" style="stop-color:#CACACA"> </stop>
+<stop offset="0.0811" style="stop-color:#D1D1D1"> </stop>
+<stop offset="0.4298" style="stop-color:#EAEAEA"> </stop>
+<stop offset="0.7463" style="stop-color:#FAFAFA"> </stop>
+<stop offset="1" style="stop-color:#FFFFFF"> </stop>
+</linearGradient>
+<path style="fill:url(#lightFG_1_);" d="M11.425,15.418c2.082,0.205,4.352,0.892,6.665,2.401c9.275,6.052,17.937,0.239,18.301-0.01   v7.535L1.613,25.338v-7.535c0.048-0.033,2.882-1.984,6.957-2.385C8.569,15.418,10.395,15.278,11.425,15.418z"> </path>
+</g>
+</svg>
