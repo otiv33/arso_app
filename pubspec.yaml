@@ -43,9 +43,12 @@ dependencies:
   flutter_native_splash: ^2.2.15
   dropdown_search: ^5.0.3
   path_provider: ^2.0.11
+  flutter_donation_buttons: ^0.0.5
+  url_launcher: ^6.1.7
+  rename: ^2.0.1
 
 flutter_icons:
-  image_path: "assets/mobile_icons/favicon-192x192.png"
+  image_path: "assets/mobile_icons/ic_launcher.png"
   android: true
   ios: true
 

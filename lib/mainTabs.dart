@@ -66,8 +66,7 @@ class _MainTabs extends State<MainTabs> {
         appBar: AppBar(
           title: Center(
               child: Text(
-                  textAlign: TextAlign.center,
-                  _localDataManager.data.cityName)),
+                  textAlign: TextAlign.left, _localDataManager.data.cityName)),
           backgroundColor: const Color.fromARGB(255, 0, 130, 188),
           actions: [
             IconButton(
