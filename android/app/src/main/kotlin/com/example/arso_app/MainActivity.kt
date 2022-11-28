@@ -1,4 +1,4 @@
-package com.example.arso_app
+package com.vitoabeln.arsovreme
 
 import io.flutter.embedding.android.FlutterActivity
 
