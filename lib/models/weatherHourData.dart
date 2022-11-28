@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-
 import '../functions/functions.dart';
 
 class WeatherHourData {
@@ -11,9 +8,10 @@ class WeatherHourData {
   String windIcon = "";
   String windSpeed = "";
 
-  List<WeatherHourData> listFromJson(json) {
-    var current =
-        json['forecast1h']['features'][0]['properties']['days'][0]['timeline'];
+  // dayIndex = [0]-today, [1]-tomorrow
+  List<WeatherHourData> listFromJson(json, dayIndex) {
+    var current = json['forecast1h']['features'][0]['properties']['days']
+        [dayIndex]['timeline'];
 
     List<WeatherHourData> listWHour = List.empty(growable: true);
     for (var el in current) {

@@ -3,22 +3,22 @@ import 'dart:io';
 
 import 'package:arso_app/models/localData.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async' show Future;
 
 class LocalDataManager {
   String _path = "";
+  LocalData data = LocalData();
 
-  LocalDataManager() {}
+  LocalDataManager();
 
-  Future InitialLoad() async {
+  Future initialLoad() async {
     var dir = await getApplicationDocumentsDirectory();
     _path = "${dir.path}/assets/data/localData.json";
   }
 
   Future getLocalDataInitial() async {
-    await InitialLoad();
-    return await getLocalData();
+    await initialLoad();
+    data = await getLocalData();
   }
 
   Future getLocalData() async {
@@ -26,18 +26,31 @@ class LocalDataManager {
       String localDataJson = await File(_path).readAsString();
       return LocalData.fromJson(jsonDecode(localDataJson));
     } else {
-      await new File(_path).create(recursive: true).then((File file) {
-        String sample =
-            '{"cityName":"Maribor","defaultCity":"Ljubljana","favouriteCities":[]}';
-        file.writeAsString(sample);
-        return LocalData.fromJson(jsonDecode(sample));
-      });
+      File file = await File(_path).create(recursive: true);
+      String sample =
+          '{"cityName":"Maribor","defaultCity":"Ljubljana","favouriteCities":[]}';
+      file.writeAsString(sample);
+      return LocalData.fromJson(jsonDecode(sample));
     }
   }
 
-  Future<void> updateLocalData(LocalData data) async {
+  void updateLocalDataFile() {
     String json = jsonEncode(data.toJson());
     File file = File(_path);
     file.writeAsString(json);
+  }
+
+  void addToFavourites(String city) {
+    if (!data.favouriteCities.contains(city)) {
+      data.favouriteCities.add(city);
+      updateLocalDataFile();
+    }
+  }
+
+  void removeFromFavourites(String city) {
+    if (data.favouriteCities.contains(city)) {
+      data.favouriteCities.remove(city);
+      updateLocalDataFile();
+    }
   }
 }

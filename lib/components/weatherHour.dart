@@ -28,6 +28,7 @@ class WeatherHour extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Text(
                     _data.hour,
+                    textAlign: TextAlign.right,
                     style: const TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
@@ -41,6 +42,7 @@ class WeatherHour extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Text("${_data.temperature} °C",
+                      textAlign: TextAlign.right,
                       style: const TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,

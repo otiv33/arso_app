@@ -14,11 +14,9 @@ String formatDateToTime(Map arr, String attr) {
   if (arr[attr] != null) {
     var time = DateTime.parse(arr[attr]);
     if (attr == 'valid') {
-      int hour = time.hour + 1;
-      int minute = time.minute;
-      return '$hour:${DateFormat('mm').format(time)}';
+      return DateFormat('HH:mm').format(time.add(const Duration(hours: 1)));
     } else {
-      return DateFormat('H:mm').format(time);
+      return DateFormat('HH:mm').format(time);
     }
   } else {
     return "";
@@ -28,4 +26,15 @@ String formatDateToTime(Map arr, String attr) {
 String getTodayDate() {
   DateTime now = DateTime.now();
   return '${now.day}. ${now.month}. ${now.year}';
+}
+
+String getTomorrowDate() {
+  DateTime now = DateTime.now().add(const Duration(days: 1));
+  return '${now.day}. ${now.month}. ${now.year}';
+}
+
+extension DateOnlyCompare on DateTime {
+  bool isSameDate(DateTime other) {
+    return year == other.year && month == other.month && day == other.day;
+  }
 }

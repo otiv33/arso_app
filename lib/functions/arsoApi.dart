@@ -5,6 +5,7 @@ import 'package:http/http.dart';
 import 'dart:convert';
 
 import '../models/weatherHourData.dart';
+import '../models/weatherTomorrowData.dart';
 
 class ArsoApi {
   late String _cityName;
@@ -20,17 +21,21 @@ class ArsoApi {
   }
 
   // Za spremenit v WEATHER
-  Future<WeatherTodayData> getWeather() async {
+  Future<Weather> getWeather() async {
     var json = await _getWeatherJson();
     var todayData = WeatherTodayData.fromJson(json);
-    return todayData;
+    var tomorrowData = WeatherTomorrowData.fromJson(json);
+    var weekData = WeatherDayData().fromJson(json);
+    Weather weather = Weather(todayData, tomorrowData, weekData);
+    return weather;
   }
 }
 
 class Weather {
-  Weather(this.weatherCurrentData, this.weatherDayData, this.weatherHourData);
+  Weather(
+      this.weatherCurrentData, this.weatherTomorrowData, this.weatherDayData);
 
   WeatherTodayData weatherCurrentData;
-  WeatherHourData weatherHourData;
-  WeatherDayData weatherDayData;
+  WeatherTomorrowData weatherTomorrowData;
+  List<WeatherDayData> weatherDayData;
 }

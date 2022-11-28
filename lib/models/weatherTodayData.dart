@@ -41,7 +41,7 @@ class WeatherTodayData {
     wToday.report = nullCheck(current['clouds_shortText']).capitalize();
     wToday.temp = nullCheck(current['t']);
     wToday.weatherIcon = nullCheck(current['clouds_icon_wwsyn_icon']);
-    wToday.windReport = nullCheck(current['ff_shortText']).capitalize();
+    wToday.windReport = nullCheck(current['ff_shortText']);
     wToday.windSpeed = nullCheck(current['ff_val']);
     wToday.humidityReport = nullCheck(current['rh_shortText']);
     wToday.humidity = nullCheck(current['rh']);
@@ -49,11 +49,11 @@ class WeatherTodayData {
     wToday.pressure = nullCheck(current['msl']);
     wToday.sunrise = formatTime(currentTime, 'sunrise');
     wToday.sunset = formatTime(currentTime, 'sunset');
-    wToday.weatherHourData = WeatherHourData().listFromJson(json);
+    wToday.weatherHourData = WeatherHourData().listFromJson(json, 0);
     return wToday;
   }
 
-  Column getHourlyWeatherWidget() {
+  Column buildHouryWeatherRows() {
     return Column(
         children:
             this.weatherHourData.map((data) => WeatherHour(data)).toList());

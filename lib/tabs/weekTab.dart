@@ -1,35 +1,29 @@
+import 'package:arso_app/functions/localData.dart';
 import 'package:flutter/material.dart';
 
 import '../components/weatherDay.dart';
 import '../models/weatherDayData.dart';
 
 class WeekTab extends StatefulWidget {
-  const WeekTab({super.key});
+  late List<WeatherDayData> _weekData;
+  WeekTab(List<WeatherDayData> weekData, {super.key}) {
+    _weekData = weekData;
+  }
 
   @override
-  State<WeekTab> createState() => _WeekTabState();
+  State<WeekTab> createState() => _WeekTabState(_weekData);
 }
 
 class _WeekTabState extends State<WeekTab> {
-  List<WeatherDayData> _getDayWeatherData() {
-    List<WeatherDayData> list = <WeatherDayData>[];
-    list.add(WeatherDayData(
-        "Danes", "11.11", "Rahlo oblačno", "overcast_RA_day", "13", "12"));
-    list.add(WeatherDayData("Ponedeljek", "12.11", "Pretežno oblačno",
-        "overcast_RA_day", "-10", "1"));
-    list.add(WeatherDayData(
-        "Četrtek", "13.11", "Rahlo oblačno", "overcast_RA_day", "0", "-10"));
-    return list;
-  }
-
-  Column loadHourlyWeather() {
-    return Column(
-        children:
-            _getDayWeatherData().map((data) => WeatherDay(data)).toList());
+  late List<WeatherDayData> _weekData;
+  _WeekTabState(List<WeatherDayData> weekData) {
+    _weekData = weekData;
   }
 
   @override
   Widget build(BuildContext context) {
-    return loadHourlyWeather();
+    return SingleChildScrollView(
+        child: Column(
+            children: _weekData.map((data) => WeatherDay(data)).toList()));
   }
 }
