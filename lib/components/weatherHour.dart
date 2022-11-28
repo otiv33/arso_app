@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class WeatherHour extends StatefulWidget {
+import '../models/weatherHourData.dart';
+
+class WeatherHour extends StatelessWidget {
   late WeatherHourData _data;
   WeatherHour(WeatherHourData data, {super.key}) {
     super.key;
-    _data = data;
-  }
-
-  @override
-  State<WeatherHour> createState() => _WeatherHourState(_data);
-}
-
-class _WeatherHourState extends State<WeatherHour> {
-  late WeatherHourData _data;
-  _WeatherHourState(WeatherHourData data) {
     _data = data;
   }
 
@@ -36,6 +28,7 @@ class _WeatherHourState extends State<WeatherHour> {
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Text(
                     _data.hour,
+                    textAlign: TextAlign.right,
                     style: const TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
@@ -49,6 +42,7 @@ class _WeatherHourState extends State<WeatherHour> {
                 Container(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: Text("${_data.temperature} °C",
+                      textAlign: TextAlign.right,
                       style: const TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
@@ -90,14 +84,4 @@ class _WeatherHourState extends State<WeatherHour> {
           ],
         ));
   }
-}
-
-class WeatherHourData {
-  WeatherHourData(this.hour, this.temperature, this.weatherIcon, this.windIcon,
-      this.windSpeed);
-  String hour = "";
-  String temperature = "";
-  String weatherIcon = "";
-  String windIcon = "";
-  String windSpeed = "";
 }

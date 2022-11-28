@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 38 38" style="enable-background:new 0 0 38 38;" xml:space="preserve">
+ <g>
+ 	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="16.4992" y1="23.9694" x2="25.9992" y2="4.9694">
+ 		<stop offset="0" style="stop-color:#F9EF61"/>
+ 		<stop offset="0.3078" style="stop-color:#F9D65E"/>
+ 		<stop offset="0.7508" style="stop-color:#F9B85B"/>
+ 		<stop offset="1" style="stop-color:#F9AC5A"/>
+ 	</linearGradient>
+ 	<path style="opacity:0.4;fill:url(#SVGID_1_);" d="M19,3.167C10.256,3.167,3.168,10.256,3.168,19c0,2.253,0.478,4.393,1.326,6.333   h29.011c0.848-1.941,1.326-4.08,1.326-6.333C34.832,10.256,27.744,3.167,19,3.167z"/>
+ 	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="15.2882" y1="24.8545" x2="24.0428" y2="11.0166">
+ 		<stop offset="0" style="stop-color:#F9EF61"/>
+ 		<stop offset="0.3078" style="stop-color:#F9D65E"/>
+ 		<stop offset="0.7508" style="stop-color:#F9B85B"/>
+ 		<stop offset="1" style="stop-color:#F9AC5A"/>
+ 	</linearGradient>
+ 	<path style="fill:url(#SVGID_2_);" d="M18.989,10.373c-4.77,0-8.637,3.867-8.637,8.638c0,2.5,1.069,4.746,2.766,6.323H24.86   c1.698-1.577,2.766-3.823,2.766-6.323C27.626,14.24,23.759,10.373,18.989,10.373z"/>
+</g>
+<g id="lightFG" style="opacity:0.6;"> <linearGradient id="lightFG_1_" gradientUnits="userSpaceOnUse" x1="18.8985" y1="3442.6033" x2="19.1146" y2="3449.3049" gradientTransform="matrix(1 0 0 -1 0 3467.3867)"> <stop offset="0" style="stop-color:#CACACA"> </stop>
+<stop offset="0.0811" style="stop-color:#D1D1D1"> </stop>
+<stop offset="0.4298" style="stop-color:#EAEAEA"> </stop>
+<stop offset="0.7463" style="stop-color:#FAFAFA"> </stop>
+<stop offset="1" style="stop-color:#FFFFFF"> </stop>
+</linearGradient>
+<path style="fill:url(#lightFG_1_);" d="M11.425,15.418c2.082,0.205,4.352,0.892,6.665,2.401c9.275,6.052,17.937,0.239,18.301-0.01   v7.535L1.613,25.338v-7.535c0.048-0.033,2.882-1.984,6.957-2.385C8.569,15.418,10.395,15.278,11.425,15.418z"> </path>
+</g>
+</svg>
