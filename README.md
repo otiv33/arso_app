@@ -13,4 +13,7 @@ Unofficial ARSO weather app was created for as a university project for mobile d
 ## Sources
 Forecast data and the icons used in the application were kindly provided by the slovenian national environment agency (Agencija Republike Slovenije Za Okolje, ARSO, https://www.arso.gov.si/).
 
+## Support
+You can support this project by helping with development. Or you can buy the developer a coffee for extra motivation.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M6GO4AN)
