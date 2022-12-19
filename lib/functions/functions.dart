@@ -38,3 +38,11 @@ extension DateOnlyCompare on DateTime {
     return year == other.year && month == other.month && day == other.day;
   }
 }
+
+String toLowerAndRemoveSpecial(String data) {
+  return data
+      .toLowerCase()
+      .replaceAll(RegExp(r'š'), 's')
+      .replaceAll(RegExp(r'č'), 'c')
+      .replaceAll(RegExp(r'ž'), 'z');
+}

@@ -40,7 +40,8 @@ class TomorrowTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(getTomorrowDate(),
-                style: Theme.of(context).textTheme.bodyText1)
+                style: Theme.of(context).textTheme.bodyText1),
+            FavouriteStar(_localDataManager),
           ],
         ));
     // return ;

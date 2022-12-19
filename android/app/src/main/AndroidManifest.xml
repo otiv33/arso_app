@@ -9,7 +9,7 @@
         </intent>
     </queries>
    <application
-        android:label="ARSO vreme"
+        android:label="ARSO vreme - neuradna"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

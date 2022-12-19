@@ -26,7 +26,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
         backgroundColor: const Color.fromARGB(255, 0, 130, 188),
         child: Column(
           children: [
-            buildHeader(context),
+            buildFavouriteHeader(context),
             buildFavouriteRow(context),
             Expanded(child: Container()),
             buildDonate(context),
@@ -35,9 +35,10 @@ class _InfoDrawerState extends State<InfoDrawer> {
         ));
   }
 
-  Widget buildHeader(BuildContext context) {
+  Widget buildFavouriteHeader(BuildContext context) {
+    double statusBarHeight = MediaQuery.of(context).viewPadding.top;
     return Container(
-      padding: const EdgeInsets.fromLTRB(10, 40, 10, 10),
+      padding: EdgeInsets.fromLTRB(10, statusBarHeight + 15, 10, 10),
       child: const Text(
         "Seznam priljubljenih",
         style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
@@ -84,6 +85,24 @@ class _InfoDrawerState extends State<InfoDrawer> {
               ],
             )))
         .toList();
+
+    // Add empty placeholder
+    if (favouriteCities.isEmpty) {
+      favouriteCities.add(Container(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: const [
+          Expanded(
+              flex: 10,
+              child: ListTile(
+                title: Text(
+                  "Ni priljubljenih mest ... ",
+                  textAlign: TextAlign.center,
+                ),
+              )),
+        ],
+      )));
+    }
 
     return SingleChildScrollView(
         child: Column(
@@ -151,9 +170,9 @@ class _InfoDrawerState extends State<InfoDrawer> {
               )),
               const Text(
                   '\nČe ti je aplikacija všeč se lahko zahvališ z majhno '
-                  'donacijo in kupiš ravzijalcem kakšno frutabelo 😊\n'),
+                  'donacijo in kupiš razvijalcem kakšno frutabelo 😊\n'),
               KofiButton(
-                kofiName: "flajt",
+                kofiName: "Vito Abeln",
                 kofiColor: KofiColor.Red,
                 onDonation: () async {
                   var url = Uri.parse('https://ko-fi.com/vitoabeln');
