@@ -6,6 +6,7 @@ import 'package:arso_app/models/weatherTomorrowData.dart';
 import 'package:arso_app/tabs/todayTab.dart';
 import 'package:arso_app/tabs/tomorrowTab.dart';
 import 'package:arso_app/tabs/weekTab.dart';
+import 'package:arso_app/weatherImage.dart';
 import 'package:flutter/material.dart';
 import 'components/citySearchDelegate.dart';
 import 'functions/arsoApi.dart';
@@ -100,6 +101,18 @@ class _MainTabs extends State<MainTabs> {
           TomorrowTab(_tomorrowData, _localDataManager),
           WeekTab(_weekData)
         ]),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).push(
+              PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (_, __, ___) => WeatherImage(),
+              ),
+            );
+          },
+          backgroundColor: Color.fromARGB(166, 82, 146, 255),
+          child: const Icon(Icons.map),
+        ),
       ),
     );
   }

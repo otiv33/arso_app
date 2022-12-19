@@ -41,7 +41,6 @@ class TodayTab extends StatelessWidget {
             FavouriteStar(_localDataManager),
           ],
         ));
-    // return ;
   }
 
   Widget buildWeatherReport(BuildContext context) {
