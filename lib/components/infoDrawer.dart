@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_donation_buttons/donationButtons/ko-fiButton.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../functions/functions.dart';
+
 class InfoDrawer extends StatefulWidget {
   late LocalDataManager _localDataManager;
   InfoDrawer(LocalDataManager localDataManager, {super.key}) {
@@ -23,7 +25,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: const Color.fromARGB(255, 0, 130, 188),
+        backgroundColor: getDefaultColor1(),
         child: Column(
           children: [
             buildFavouriteHeader(context),
@@ -38,7 +40,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
   Widget buildFavouriteHeader(BuildContext context) {
     double statusBarHeight = MediaQuery.of(context).viewPadding.top;
     return Container(
-      padding: EdgeInsets.fromLTRB(10, statusBarHeight + 15, 10, 10),
+      padding: EdgeInsets.fromLTRB(10, statusBarHeight + 10, 10, 10),
       child: const Text(
         "Seznam priljubljenih",
         style: TextStyle(fontWeight: FontWeight.normal, fontSize: 20),

@@ -18,9 +18,6 @@ class _WeatherImageState extends State<WeatherImage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(178, 0, 0, 0),
-      // appBar: AppBar(
-      //   title: const Text('FloatingActionButton Sample'),
-      // ),
       body: Center(
           child: PhotoView(
         imageProvider: NetworkImage(widget.imageUrl),

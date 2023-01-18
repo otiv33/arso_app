@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
 
 extension StringExtension on String {
   String capitalize() {
@@ -45,4 +46,14 @@ String toLowerAndRemoveSpecial(String data) {
       .replaceAll(RegExp(r'š'), 's')
       .replaceAll(RegExp(r'č'), 'c')
       .replaceAll(RegExp(r'ž'), 'z');
+}
+
+Color getDefaultColor1() {
+  // return Color.fromARGB(255, 24, 90, 120);
+  return const Color.fromARGB(255, 0, 130, 188);
+}
+
+Color getDefaultColor2() {
+  // return Color.fromARGB(255, 35, 130, 161);
+  return const Color.fromARGB(255, 10, 104, 160);
 }

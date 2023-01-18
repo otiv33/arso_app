@@ -10,6 +10,7 @@ import 'package:arso_app/weatherImage.dart';
 import 'package:flutter/material.dart';
 import 'components/citySearchDelegate.dart';
 import 'functions/arsoApi.dart';
+import 'functions/functions.dart';
 import 'functions/localData.dart';
 
 class MainTabs extends StatefulWidget {
@@ -68,7 +69,7 @@ class _MainTabs extends State<MainTabs> {
           title: Center(
               child: Text(
                   textAlign: TextAlign.left, _localDataManager.data.cityName)),
-          backgroundColor: const Color.fromARGB(255, 0, 130, 188),
+          backgroundColor: getDefaultColor1(),
           actions: [
             IconButton(
               onPressed: () {
@@ -111,6 +112,8 @@ class _MainTabs extends State<MainTabs> {
             );
           },
           backgroundColor: Color.fromARGB(166, 82, 146, 255),
+          // Proposed change
+          // backgroundColor: Color.fromARGB(145, 35, 67, 123),
           child: const Icon(Icons.map),
         ),
       ),

@@ -25,7 +25,7 @@ class TodayTab extends StatelessWidget {
         buildWind(context),
         buildHumidity(context),
         // VREME PO URAH
-        _data.buildHouryWeatherRows()
+        _data.buildHouryWeatherRows(),
       ]),
     ));
   }
