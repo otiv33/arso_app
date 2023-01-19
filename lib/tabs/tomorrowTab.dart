@@ -1,7 +1,5 @@
 import 'package:arso_app/models/weatherTomorrowData.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../components/favouriteStar.dart';
 import '../functions/functions.dart';
 import '../functions/localData.dart';
@@ -40,7 +38,8 @@ class TomorrowTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(getTomorrowDate(),
-                style: Theme.of(context).textTheme.bodyText1)
+                style: Theme.of(context).textTheme.bodyText1),
+            FavouriteStar(_localDataManager),
           ],
         ));
     // return ;
@@ -76,13 +75,11 @@ class TomorrowTab extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Container(
-                            child: Text(
-                              _data.maxTemp,
-                              textAlign: TextAlign.right,
-                              style: const TextStyle(
-                                  fontSize: 40, fontWeight: FontWeight.bold),
-                            ),
+                          Text(
+                            _data.maxTemp,
+                            textAlign: TextAlign.right,
+                            style: const TextStyle(
+                                fontSize: 40, fontWeight: FontWeight.bold),
                           ),
                           Container(
                             decoration: const BoxDecoration(
@@ -102,14 +99,7 @@ class TomorrowTab extends StatelessWidget {
                             ),
                           ),
                         ],
-                      )
-                      // child: Text(
-                      //   _data.temp,
-                      //   textAlign: TextAlign.right,
-                      //   style:
-                      //       TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-                      // ),
-                      ),
+                      )),
                   Container(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                     child: const Text(
@@ -128,11 +118,11 @@ class TomorrowTab extends StatelessWidget {
             children: [
               Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                  child: SvgPicture.asset(
-                      'assets/icons/${_data.weatherIcon}.svg',
+                  child: Image(
+                      image:
+                          AssetImage('assets/icons/${_data.weatherIcon}.png'),
                       width: 110,
-                      height: 110,
-                      semanticsLabel: 'overcast_RA_day'))
+                      height: 110))
             ],
           )
         ],

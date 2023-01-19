@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../functions/functions.dart';
 
 class CitySearchDelegate extends SearchDelegate<String> {
   List<String> searchResults = [];
@@ -6,13 +7,6 @@ class CitySearchDelegate extends SearchDelegate<String> {
   void UpdateCityList(List<String> cityList) {
     searchResults = cityList;
   }
-
-  // @override
-  // ThemeData appBarTheme(BuildContext context) {
-  //   return ThemeData(
-  //     appBarTheme:
-  //   );
-  // }
 
   @override
   List<Widget>? buildActions(BuildContext context) {
@@ -46,8 +40,8 @@ class CitySearchDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     List<String> suggestions = searchResults.where((el) {
-      final result = el.toLowerCase();
-      final input = query.toLowerCase();
+      final result = toLowerAndRemoveSpecial(el);
+      final input = toLowerAndRemoveSpecial(query);
       return result.contains(input);
     }).toList();
     return ListView.builder(
@@ -66,6 +60,7 @@ class CitySearchDelegate extends SearchDelegate<String> {
             query = city;
             close(context, city);
           },
+          tileColor: getDefaultColor2(),
         );
       },
     );

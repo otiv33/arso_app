@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../models/weatherHourData.dart';
 
 class WeatherHour extends StatelessWidget {
@@ -52,19 +50,20 @@ class WeatherHour extends StatelessWidget {
             ),
             Column(children: [
               Container(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                child: SvgPicture.asset('assets/icons/${_data.weatherIcon}.svg',
-                    width: 50, height: 50, semanticsLabel: 'overcast_RA_day'),
-              )
+                  padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                  child: Image(
+                      image:
+                          AssetImage('assets/icons/${_data.weatherIcon}.png'),
+                      width: 50,
+                      height: 50))
             ]),
             Column(children: [
               Row(
                 children: [
-                  SvgPicture.asset('assets/icons/${_data.windIcon}.svg',
-                      color: Colors.white,
+                  Image(
+                      image: AssetImage('assets/icons/${_data.windIcon}.png'),
                       width: 20,
-                      height: 20,
-                      semanticsLabel: 'heavyNE'),
+                      height: 20),
                   ConstrainedBox(
                     constraints: const BoxConstraints(
                       minWidth: 15.0,

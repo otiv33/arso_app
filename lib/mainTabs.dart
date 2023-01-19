@@ -6,9 +6,11 @@ import 'package:arso_app/models/weatherTomorrowData.dart';
 import 'package:arso_app/tabs/todayTab.dart';
 import 'package:arso_app/tabs/tomorrowTab.dart';
 import 'package:arso_app/tabs/weekTab.dart';
+import 'package:arso_app/weatherImage.dart';
 import 'package:flutter/material.dart';
 import 'components/citySearchDelegate.dart';
 import 'functions/arsoApi.dart';
+import 'functions/functions.dart';
 import 'functions/localData.dart';
 
 class MainTabs extends StatefulWidget {
@@ -60,47 +62,75 @@ class _MainTabs extends State<MainTabs> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 0,
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Center(
-              child: Text(
-                  textAlign: TextAlign.left, _localDataManager.data.cityName)),
-          backgroundColor: const Color.fromARGB(255, 0, 130, 188),
-          actions: [
-            IconButton(
-              onPressed: () {
-                var newCity =
-                    showSearch(context: context, delegate: _cityListDelegate);
-                // REFRESH WEATHER FOR NEW CITY
-                newCity.then((value) {
-                  if (value! != "") {
-                    _localDataManager.data.cityName = value;
-                    _getWeatherData();
-                    _localDataManager.updateLocalDataFile();
-                  }
-                });
-              },
-              icon: const Icon(Icons.search),
+        initialIndex: 0,
+        length: 3,
+        child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 3, 105, 163),
+              Color.fromARGB(172, 5, 99, 154),
+              Color.fromARGB(197, 196, 156, 54),
+            ],
+          )),
+          child: Scaffold(
+            appBar: AppBar(
+              title: Center(
+                  child: Text(
+                      textAlign: TextAlign.left,
+                      _localDataManager.data.cityName)),
+              backgroundColor: getDefaultColor1(),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    var newCity = showSearch(
+                        context: context, delegate: _cityListDelegate);
+                    // REFRESH WEATHER FOR NEW CITY
+                    newCity.then((value) {
+                      if (value! != "") {
+                        _localDataManager.data.cityName = value;
+                        _getWeatherData();
+                        _localDataManager.updateLocalDataFile();
+                      }
+                    });
+                  },
+                  icon: const Icon(Icons.search),
+                ),
+              ],
+              bottom: const TabBar(
+                tabs: [
+                  Tab(text: 'DANES'),
+                  Tab(text: 'JUTRI'),
+                  Tab(text: '10 DNI')
+                ],
+              ),
             ),
-          ],
-          bottom: const TabBar(
-            tabs: [Tab(text: 'DANES'), Tab(text: 'JUTRI'), Tab(text: '10 DNI')],
+            drawer: InfoDrawer(_localDataManager),
+            onDrawerChanged: (isOpen) {
+              if (!isOpen) {
+                _getWeatherData();
+              }
+            },
+            body: TabBarView(children: [
+              TodayTab(_todayData, _localDataManager),
+              TomorrowTab(_tomorrowData, _localDataManager),
+              WeekTab(_weekData)
+            ]),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    opaque: false,
+                    pageBuilder: (_, __, ___) => WeatherImage(),
+                  ),
+                );
+              },
+              backgroundColor: const Color.fromARGB(177, 4, 89, 138),
+              child: const Icon(Icons.map),
+            ),
           ),
-        ),
-        drawer: InfoDrawer(_localDataManager),
-        onDrawerChanged: (isOpen) {
-          if (!isOpen) {
-            _getWeatherData();
-          }
-        },
-        body: TabBarView(children: [
-          TodayTab(_todayData, _localDataManager),
-          TomorrowTab(_tomorrowData, _localDataManager),
-          WeekTab(_weekData)
-        ]),
-      ),
-    );
+        ));
   }
 }

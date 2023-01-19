@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
 
 extension StringExtension on String {
   String capitalize() {
@@ -37,4 +38,22 @@ extension DateOnlyCompare on DateTime {
   bool isSameDate(DateTime other) {
     return year == other.year && month == other.month && day == other.day;
   }
+}
+
+String toLowerAndRemoveSpecial(String data) {
+  return data
+      .toLowerCase()
+      .replaceAll(RegExp(r'š'), 's')
+      .replaceAll(RegExp(r'č'), 'c')
+      .replaceAll(RegExp(r'ž'), 'z');
+}
+
+// For nav bar
+Color getDefaultColor1() {
+  return const Color.fromARGB(172, 13, 91, 136);
+}
+
+// For background
+Color getDefaultColor2() {
+  return const Color.fromARGB(255, 5, 88, 136);
 }

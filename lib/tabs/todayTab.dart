@@ -1,6 +1,5 @@
 import 'package:arso_app/components/favouriteStar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../functions/functions.dart';
 import '../models/weatherTodayData.dart';
 import 'package:arso_app/functions/localData.dart';
@@ -17,17 +16,19 @@ class TodayTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
-      child: Column(children: [
-        buildTodayDateWithFavourite(context),
-        buildWeatherReport(context),
-        buildTempWithIcon(context),
-        buildWind(context),
-        buildHumidity(context),
-        // VREME PO URAH
-        _data.buildHouryWeatherRows()
-      ]),
-    ));
+          child: Column(children: [
+            buildTodayDateWithFavourite(context),
+            buildWeatherReport(context),
+            buildTempWithIcon(context),
+            buildWind(context),
+            buildHumidity(context),
+            // VREME PO URAH
+            _data.buildHouryWeatherRows(),
+          ]),
+        ));
   }
 
   Widget buildTodayDateWithFavourite(BuildContext context) {
@@ -41,7 +42,6 @@ class TodayTab extends StatelessWidget {
             FavouriteStar(_localDataManager),
           ],
         ));
-    // return ;
   }
 
   Widget buildWeatherReport(BuildContext context) {
@@ -94,11 +94,11 @@ class TodayTab extends StatelessWidget {
             children: [
               Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                  child: SvgPicture.asset(
-                      'assets/icons/${_data.weatherIcon}.svg',
+                  child: Image(
+                      image:
+                          AssetImage('assets/icons/${_data.weatherIcon}.png'),
                       width: 110,
-                      height: 110,
-                      semanticsLabel: 'overcast_RA_day'))
+                      height: 110))
             ],
           )
         ],
@@ -143,3 +143,16 @@ class TodayTab extends StatelessWidget {
     );
   }
 }
+
+// class MyPainter extends CustomPainter {
+//   //         <-- CustomPainter class
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     //                                             <-- Insert your painting code here.
+//   }
+
+//   @override
+//   bool shouldRepaint(CustomPainter old) {
+//     return false;
+//   }
+// }
