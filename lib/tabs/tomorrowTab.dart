@@ -75,13 +75,11 @@ class TomorrowTab extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Container(
-                            child: Text(
-                              _data.maxTemp,
-                              textAlign: TextAlign.right,
-                              style: const TextStyle(
-                                  fontSize: 40, fontWeight: FontWeight.bold),
-                            ),
+                          Text(
+                            _data.maxTemp,
+                            textAlign: TextAlign.right,
+                            style: const TextStyle(
+                                fontSize: 40, fontWeight: FontWeight.bold),
                           ),
                           Container(
                             decoration: const BoxDecoration(
@@ -101,14 +99,7 @@ class TomorrowTab extends StatelessWidget {
                             ),
                           ),
                         ],
-                      )
-                      // child: Text(
-                      //   _data.temp,
-                      //   textAlign: TextAlign.right,
-                      //   style:
-                      //       TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-                      // ),
-                      ),
+                      )),
                   Container(
                     padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                     child: const Text(

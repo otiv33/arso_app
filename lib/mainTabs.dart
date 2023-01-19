@@ -127,9 +127,7 @@ class _MainTabs extends State<MainTabs> {
                   ),
                 );
               },
-              backgroundColor: Color.fromARGB(177, 4, 89, 138),
-              // Proposed change
-              // backgroundColor: Color.fromARGB(145, 35, 67, 123),
+              backgroundColor: const Color.fromARGB(177, 4, 89, 138),
               child: const Icon(Icons.map),
             ),
           ),

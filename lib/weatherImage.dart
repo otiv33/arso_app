@@ -17,7 +17,7 @@ class _WeatherImageState extends State<WeatherImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(178, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(178, 0, 0, 0),
       body: Center(
           child: PhotoView(
         imageProvider: NetworkImage(widget.imageUrl),
@@ -27,7 +27,7 @@ class _WeatherImageState extends State<WeatherImage> {
         onPressed: () {
           Navigator.pop(context);
         },
-        backgroundColor: Color.fromARGB(182, 82, 146, 255),
+        backgroundColor: Color.fromARGB(255, 4, 89, 138),
         child: const Icon(Icons.arrow_back),
       ),
     );
