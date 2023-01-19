@@ -52,14 +52,16 @@ flutter_icons:
   android: true
   ios: true
 
+# Note
+# 1) flutter clean
+# 2) flutter pub get
+# 3) flutter pub run flutter_native_splash:create
 flutter_native_splash:
   color: "#ffffff"
   image: assets/mobile_icons/splash.png
   android: true
   ios: true
   web: false
-  # branding: assets/mobile_icons/branding.png
-  # branding_mode: bottom
 
 
 dev_dependencies:

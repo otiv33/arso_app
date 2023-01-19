@@ -38,8 +38,7 @@ class MyApp extends StatelessWidget {
               labelStyle: TextStyle(color: Colors.white),
               indicator: UnderlineTabIndicator(
                   borderSide: BorderSide(width: 2.0, color: Colors.white))),
-          scaffoldBackgroundColor:
-              Colors.transparent, //Color.fromARGB(255, 10, 104, 160),
+          scaffoldBackgroundColor: Colors.transparent,
           primarySwatch: Colors.blue),
       home: MainTabs(),
     );

@@ -55,5 +55,5 @@ Color getDefaultColor1() {
 
 // For background
 Color getDefaultColor2() {
-  return Color.fromARGB(255, 5, 88, 136);
+  return const Color.fromARGB(255, 5, 88, 136);
 }
