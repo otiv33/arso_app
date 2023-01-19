@@ -62,61 +62,77 @@ class _MainTabs extends State<MainTabs> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      initialIndex: 0,
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Center(
-              child: Text(
-                  textAlign: TextAlign.left, _localDataManager.data.cityName)),
-          backgroundColor: getDefaultColor1(),
-          actions: [
-            IconButton(
-              onPressed: () {
-                var newCity =
-                    showSearch(context: context, delegate: _cityListDelegate);
-                // REFRESH WEATHER FOR NEW CITY
-                newCity.then((value) {
-                  if (value! != "") {
-                    _localDataManager.data.cityName = value;
-                    _getWeatherData();
-                    _localDataManager.updateLocalDataFile();
-                  }
-                });
-              },
-              icon: const Icon(Icons.search),
-            ),
-          ],
-          bottom: const TabBar(
-            tabs: [Tab(text: 'DANES'), Tab(text: 'JUTRI'), Tab(text: '10 DNI')],
-          ),
-        ),
-        drawer: InfoDrawer(_localDataManager),
-        onDrawerChanged: (isOpen) {
-          if (!isOpen) {
-            _getWeatherData();
-          }
-        },
-        body: TabBarView(children: [
-          TodayTab(_todayData, _localDataManager),
-          TomorrowTab(_tomorrowData, _localDataManager),
-          WeekTab(_weekData)
-        ]),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).push(
-              PageRouteBuilder(
-                opaque: false,
-                pageBuilder: (_, __, ___) => WeatherImage(),
+        initialIndex: 0,
+        length: 3,
+        child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 3, 105, 163),
+              Color.fromARGB(172, 5, 99, 154),
+              Color.fromARGB(197, 196, 156, 54),
+            ],
+          )),
+          child: Scaffold(
+            appBar: AppBar(
+              title: Center(
+                  child: Text(
+                      textAlign: TextAlign.left,
+                      _localDataManager.data.cityName)),
+              backgroundColor: getDefaultColor1(),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    var newCity = showSearch(
+                        context: context, delegate: _cityListDelegate);
+                    // REFRESH WEATHER FOR NEW CITY
+                    newCity.then((value) {
+                      if (value! != "") {
+                        _localDataManager.data.cityName = value;
+                        _getWeatherData();
+                        _localDataManager.updateLocalDataFile();
+                      }
+                    });
+                  },
+                  icon: const Icon(Icons.search),
+                ),
+              ],
+              bottom: const TabBar(
+                tabs: [
+                  Tab(text: 'DANES'),
+                  Tab(text: 'JUTRI'),
+                  Tab(text: '10 DNI')
+                ],
               ),
-            );
-          },
-          backgroundColor: Color.fromARGB(166, 82, 146, 255),
-          // Proposed change
-          // backgroundColor: Color.fromARGB(145, 35, 67, 123),
-          child: const Icon(Icons.map),
-        ),
-      ),
-    );
+            ),
+            drawer: InfoDrawer(_localDataManager),
+            onDrawerChanged: (isOpen) {
+              if (!isOpen) {
+                _getWeatherData();
+              }
+            },
+            body: TabBarView(children: [
+              TodayTab(_todayData, _localDataManager),
+              TomorrowTab(_tomorrowData, _localDataManager),
+              WeekTab(_weekData)
+            ]),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  PageRouteBuilder(
+                    opaque: false,
+                    pageBuilder: (_, __, ___) => WeatherImage(),
+                  ),
+                );
+              },
+              backgroundColor: Color.fromARGB(177, 4, 89, 138),
+              // Proposed change
+              // backgroundColor: Color.fromARGB(145, 35, 67, 123),
+              child: const Icon(Icons.map),
+            ),
+          ),
+        ));
   }
 }

@@ -25,7 +25,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: getDefaultColor1(),
+        backgroundColor: getDefaultColor2(),
         child: Column(
           children: [
             buildFavouriteHeader(context),

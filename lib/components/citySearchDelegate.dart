@@ -60,6 +60,7 @@ class CitySearchDelegate extends SearchDelegate<String> {
             query = city;
             close(context, city);
           },
+          tileColor: getDefaultColor2(),
         );
       },
     );

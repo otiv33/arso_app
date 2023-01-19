@@ -38,9 +38,9 @@ class MyApp extends StatelessWidget {
               labelStyle: TextStyle(color: Colors.white),
               indicator: UnderlineTabIndicator(
                   borderSide: BorderSide(width: 2.0, color: Colors.white))),
-          scaffoldBackgroundColor: Color.fromARGB(255, 10, 104, 160),
+          scaffoldBackgroundColor:
+              Colors.transparent, //Color.fromARGB(255, 10, 104, 160),
           primarySwatch: Colors.blue),
-      // home: const MyHomePage(title: 'ARSO app'),
       home: MainTabs(),
     );
   }

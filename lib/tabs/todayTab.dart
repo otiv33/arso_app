@@ -16,17 +16,19 @@ class TodayTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
-      child: Column(children: [
-        buildTodayDateWithFavourite(context),
-        buildWeatherReport(context),
-        buildTempWithIcon(context),
-        buildWind(context),
-        buildHumidity(context),
-        // VREME PO URAH
-        _data.buildHouryWeatherRows(),
-      ]),
-    ));
+          child: Column(children: [
+            buildTodayDateWithFavourite(context),
+            buildWeatherReport(context),
+            buildTempWithIcon(context),
+            buildWind(context),
+            buildHumidity(context),
+            // VREME PO URAH
+            _data.buildHouryWeatherRows(),
+          ]),
+        ));
   }
 
   Widget buildTodayDateWithFavourite(BuildContext context) {

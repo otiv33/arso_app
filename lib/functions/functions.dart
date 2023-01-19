@@ -48,12 +48,12 @@ String toLowerAndRemoveSpecial(String data) {
       .replaceAll(RegExp(r'ž'), 'z');
 }
 
+// For nav bar
 Color getDefaultColor1() {
-  // return Color.fromARGB(255, 24, 90, 120);
-  return const Color.fromARGB(255, 0, 130, 188);
+  return const Color.fromARGB(172, 13, 91, 136);
 }
 
+// For background
 Color getDefaultColor2() {
-  // return Color.fromARGB(255, 35, 130, 161);
-  return const Color.fromARGB(255, 10, 104, 160);
+  return Color.fromARGB(255, 5, 88, 136);
 }
