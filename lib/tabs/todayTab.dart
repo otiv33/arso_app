@@ -1,6 +1,5 @@
 import 'package:arso_app/components/favouriteStar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import '../functions/functions.dart';
 import '../models/weatherTodayData.dart';
 import 'package:arso_app/functions/localData.dart';
@@ -93,11 +92,11 @@ class TodayTab extends StatelessWidget {
             children: [
               Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                  child: SvgPicture.asset(
-                      'assets/icons/${_data.weatherIcon}.svg',
+                  child: Image(
+                      image:
+                          AssetImage('assets/icons/${_data.weatherIcon}.png'),
                       width: 110,
-                      height: 110,
-                      semanticsLabel: 'overcast_RA_day'))
+                      height: 110))
             ],
           )
         ],
@@ -142,3 +141,16 @@ class TodayTab extends StatelessWidget {
     );
   }
 }
+
+// class MyPainter extends CustomPainter {
+//   //         <-- CustomPainter class
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     //                                             <-- Insert your painting code here.
+//   }
+
+//   @override
+//   bool shouldRepaint(CustomPainter old) {
+//     return false;
+//   }
+// }

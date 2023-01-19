@@ -1,7 +1,5 @@
 import 'package:arso_app/models/weatherTomorrowData.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
 import '../components/favouriteStar.dart';
 import '../functions/functions.dart';
 import '../functions/localData.dart';
@@ -129,11 +127,11 @@ class TomorrowTab extends StatelessWidget {
             children: [
               Container(
                   margin: const EdgeInsets.fromLTRB(20, 0, 30, 0),
-                  child: SvgPicture.asset(
-                      'assets/icons/${_data.weatherIcon}.svg',
+                  child: Image(
+                      image:
+                          AssetImage('assets/icons/${_data.weatherIcon}.png'),
                       width: 110,
-                      height: 110,
-                      semanticsLabel: 'overcast_RA_day'))
+                      height: 110))
             ],
           )
         ],
