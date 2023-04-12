@@ -89,6 +89,9 @@ flutter:
     - assets/data/locations.json
     - assets/data/localData.json
     
+    - assets/icons/Arrow_up.png
+    - assets/icons/Arrow_down.png
+    - assets/icons/Sunrise_sunset.png
     - assets/icons/brezveterje.png
     - assets/icons/clear.png
     - assets/icons/clear_day.png

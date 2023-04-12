@@ -22,8 +22,8 @@ class TomorrowTab extends StatelessWidget {
         buildTodayDate(context),
         buildWeatherReport(context),
         buildTempWithIcon(context),
-        buildWind(context),
-        buildHumidity(context),
+        buildWindAndSunrise(context),
+        buildHumidityAndSunset(context),
         // VREME PO URAH
         _data.buildHouryWeatherRows()
       ]),
@@ -38,7 +38,7 @@ class TomorrowTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(getTomorrowDate(),
-                style: Theme.of(context).textTheme.bodyText1),
+                style: Theme.of(context).textTheme.bodyLarge),
             FavouriteStar(_localDataManager),
           ],
         ));
@@ -50,7 +50,8 @@ class TomorrowTab extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
         child: Row(
           children: [
-            Text(_data.report, style: Theme.of(context).textTheme.headline2),
+            Text(_data.report,
+                style: Theme.of(context).textTheme.displayMedium),
           ],
         ));
   }
@@ -130,37 +131,82 @@ class TomorrowTab extends StatelessWidget {
     );
   }
 
-  Widget buildWind(BuildContext context) {
+  Widget buildWindAndSunrise(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
       child: Column(children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Hirost vetra : ",
-                style: Theme.of(context).textTheme.bodyText1),
-            Text(_data.windReport),
-            Text(", ${_data.windSpeed} km/h",
-                style: Theme.of(context).textTheme.bodyText1),
+            Row(
+              children: [
+                Text("Hirost vetra : ",
+                    style: Theme.of(context).textTheme.bodyLarge),
+                Text(_data.windReport),
+                Text(", ${_data.windSpeed} km/h",
+                    style: Theme.of(context).textTheme.bodyLarge),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Image(
+                    image: AssetImage('assets/icons/Arrow_up.png'),
+                    width: 10,
+                    height: 10,
+                    color: Color.fromARGB(131, 255, 255, 255)),
+                const Image(
+                    image: AssetImage('assets/icons/Sunrise_sunset.png'),
+                    width: 20,
+                    height: 20,
+                    color: Color.fromARGB(131, 255, 255, 255)),
+                Text("  ${_data.sunrise}",
+                    style: Theme.of(context).textTheme.bodyLarge)
+              ],
+            )
           ],
         )
       ]),
     );
   }
 
-  Widget buildHumidity(BuildContext context) {
+  Widget buildHumidityAndSunset(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(15, 0, 15, 20),
       child: Column(children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Vlažnost : ", style: Theme.of(context).textTheme.bodyText1),
-            Text(_data.humidityReport),
-            Text(", ${_data.humidity} %",
-                style: Theme.of(context).textTheme.bodyText1),
+            Row(
+              children: [
+                Text("Vlažnost : ",
+                    style: Theme.of(context).textTheme.bodyLarge),
+                Text(_data.humidityReport),
+                Text(", ${_data.humidity} %",
+                    style: Theme.of(context).textTheme.bodyLarge),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Image(
+                    image: AssetImage('assets/icons/Arrow_down.png'),
+                    width: 10,
+                    height: 10,
+                    color: Color.fromARGB(131, 255, 255, 255)),
+                const Image(
+                    image: AssetImage('assets/icons/Sunrise_sunset.png'),
+                    width: 20,
+                    height: 20,
+                    color: Color.fromARGB(131, 255, 255, 255)),
+                Text("  ${_data.sunset}",
+                    style: Theme.of(context).textTheme.bodyLarge)
+              ],
+            )
           ],
         )
       ]),

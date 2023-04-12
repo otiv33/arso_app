@@ -27,13 +27,14 @@ class WeatherTomorrowData extends WeatherTodayData {
     }
 
     String formatTime(Map arr, String attr) {
-      return arr[attr] != null
-          ? DateFormat('H:mm').format(DateTime.parse(arr[attr]))
-          : "";
+      if (arr[attr] != null) {
+        return DateFormat('HH:mm').format(DateTime.parse(arr[attr]).toLocal());
+      }
+      return "";
     }
 
     var currentTime =
-        json['forecast24h']['features'][0]['properties']['days'][0];
+        json['forecast24h']['features'][0]['properties']['days'][1];
     var current = currentTime['timeline'][0];
 
     var wTomorrow = WeatherTomorrowData();

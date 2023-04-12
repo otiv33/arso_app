@@ -149,41 +149,38 @@ class _InfoDrawerState extends State<InfoDrawer> {
   }
 
   Widget buildDonateDialog(BuildContext context) {
-    return Container(
-        child: AlertDialog(
-            title: const Text('Zahvali se'),
-            content: Column(mainAxisSize: MainAxisSize.min, children: [
-              const Text(
-                  'Neuradna ARSO vremenska aplikacija je nastala z namenom '
-                  'izboljšati uporabniško izkušnjo dostopa do vremesnkih '
-                  'podatkov. Aplikacija je povsem odprtokodna in prosto '
-                  'dostopna.\n\n GitHub : '),
-              RichText(
-                  text: TextSpan(
-                text: 'https://github.com/otiv33/arso_app',
-                style: TextStyle(color: Colors.blue),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () async {
-                    var url = Uri.parse('https://github.com/otiv33/arso_app');
-                    if (!await launchUrl(url)) {
-                      throw 'Could not launch $url';
-                    }
-                  },
-              )),
-              const Text(
-                  '\nČe ti je aplikacija všeč se lahko zahvališ z majhno '
-                  'donacijo in kupiš razvijalcem kakšno frutabelo 😊\n'),
-              KofiButton(
-                kofiName: "Vito Abeln",
-                kofiColor: KofiColor.Red,
-                onDonation: () async {
-                  var url = Uri.parse('https://ko-fi.com/vitoabeln');
-                  if (!await launchUrl(url)) {
-                    throw 'Could not launch $url';
-                  }
-                },
-              ),
-            ])));
+    return AlertDialog(
+        title: const Text('Zahvali se'),
+        content: Column(mainAxisSize: MainAxisSize.min, children: [
+          const Text('Neuradna ARSO vremenska aplikacija je nastala z namenom '
+              'izboljšati uporabniško izkušnjo dostopa do vremenskih '
+              'podatkov. Aplikacija je povsem odprtokodna in prosto '
+              'dostopna.\n\n GitHub : '),
+          RichText(
+              text: TextSpan(
+            text: 'https://github.com/otiv33/arso_app',
+            style: const TextStyle(color: Colors.blue),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () async {
+                var url = Uri.parse('https://github.com/otiv33/arso_app');
+                if (!await launchUrl(url)) {
+                  throw 'Could not launch $url';
+                }
+              },
+          )),
+          const Text('\nČe ti je aplikacija všeč se lahko zahvališ z majhno '
+              'donacijo in kupiš razvijalcem kakšno frutabelo 😊\n'),
+          KofiButton(
+            kofiName: "Vito Abeln",
+            kofiColor: KofiColor.Red,
+            onDonation: () async {
+              var url = Uri.parse('https://ko-fi.com/vitoabeln');
+              if (!await launchUrl(url)) {
+                throw 'Could not launch $url';
+              }
+            },
+          ),
+        ]));
   }
 
   Widget buildInfoRow(BuildContext context) {

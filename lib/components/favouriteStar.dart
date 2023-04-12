@@ -1,7 +1,5 @@
 import 'package:arso_app/functions/localData.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class FavouriteStar extends StatefulWidget {
   late LocalDataManager _localDataManager;
