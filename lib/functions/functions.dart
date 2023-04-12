@@ -13,12 +13,7 @@ String nullCheck(obj) {
 
 String formatDateToTime(Map arr, String attr) {
   if (arr[attr] != null) {
-    var time = DateTime.parse(arr[attr]);
-    if (attr == 'valid') {
-      return DateFormat('HH:mm').format(time.add(const Duration(hours: 1)));
-    } else {
-      return DateFormat('HH:mm').format(time);
-    }
+    return DateFormat('HH:mm').format(DateTime.parse(arr[attr]).toLocal());
   } else {
     return "";
   }

@@ -54,7 +54,7 @@ class CitySearchDelegate extends SearchDelegate<String> {
           ),
           title: Text(
             city,
-            style: Theme.of(context).textTheme.bodyText2,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
           onTap: () {
             query = city;
@@ -64,5 +64,21 @@ class CitySearchDelegate extends SearchDelegate<String> {
         );
       },
     );
+  }
+
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    return Theme.of(context).copyWith(
+        scaffoldBackgroundColor: getDefaultColor1(),
+        hintColor: Colors.white,
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+          color: getDefaultColor2(),
+        ));
   }
 }

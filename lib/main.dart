@@ -22,16 +22,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           brightness: Brightness.light,
           textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 20.0, color: Colors.white),
-            headline2: TextStyle(
+            displayLarge: TextStyle(fontSize: 20.0, color: Colors.white),
+            displayMedium: TextStyle(
                 fontSize: 23.0,
                 fontWeight: FontWeight.bold,
                 color: Colors.white),
-            bodyText1: TextStyle(
+            bodyLarge: TextStyle(
                 fontSize: 14.0,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(131, 255, 255, 255)),
-            bodyText2: TextStyle(fontSize: 14.0, color: Colors.white),
+            bodyMedium: TextStyle(fontSize: 14.0, color: Colors.white),
           ),
           tabBarTheme: const TabBarTheme(
               labelColor: Colors.white,
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
                   borderSide: BorderSide(width: 2.0, color: Colors.white))),
           scaffoldBackgroundColor: Colors.transparent,
           primarySwatch: Colors.blue),
-      home: MainTabs(),
+      home: const MainTabs(),
     );
   }
 }

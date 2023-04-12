@@ -12,7 +12,7 @@ class WeatherImage extends StatefulWidget {
 }
 
 class _WeatherImageState extends State<WeatherImage> {
-  double _scale = 1.0;
+  // final double _scale = 1.0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +21,13 @@ class _WeatherImageState extends State<WeatherImage> {
       body: Center(
           child: PhotoView(
         imageProvider: NetworkImage(widget.imageUrl),
-        backgroundDecoration: BoxDecoration(color: Colors.transparent),
+        backgroundDecoration: const BoxDecoration(color: Colors.transparent),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pop(context);
         },
-        backgroundColor: Color.fromARGB(255, 4, 89, 138),
+        backgroundColor: const Color.fromARGB(255, 4, 89, 138),
         child: const Icon(Icons.arrow_back),
       ),
     );
