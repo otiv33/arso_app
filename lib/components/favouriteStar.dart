@@ -8,19 +8,14 @@ class FavouriteStar extends StatefulWidget {
   }
 
   @override
-  State<FavouriteStar> createState() => _FavouriteStarState(_localDataManager);
+  State<FavouriteStar> createState() => _FavouriteStarState();
 }
 
 class _FavouriteStarState extends State<FavouriteStar> {
-  late LocalDataManager _localDataManager;
-  _FavouriteStarState(LocalDataManager localDataManager) {
-    _localDataManager = localDataManager;
-  }
-
   @override
   Widget build(BuildContext context) {
-    if (_localDataManager.data.favouriteCities
-        .contains(_localDataManager.data.cityName)) {
+    if (widget._localDataManager.data.favouriteCities
+        .contains(widget._localDataManager.data.cityName)) {
       return IconButton(
           icon: const Icon(
             Icons.star,
@@ -28,8 +23,8 @@ class _FavouriteStarState extends State<FavouriteStar> {
           ),
           onPressed: () {
             setState(() {
-              _localDataManager
-                  .removeFromFavourites(_localDataManager.data.cityName);
+              widget._localDataManager
+                  .removeFromFavourites(widget._localDataManager.data.cityName);
             });
           });
     } else {
@@ -38,8 +33,8 @@ class _FavouriteStarState extends State<FavouriteStar> {
               color: Color.fromARGB(255, 255, 255, 255)),
           onPressed: () {
             setState(() {
-              _localDataManager
-                  .addToFavourites(_localDataManager.data.cityName);
+              widget._localDataManager
+                  .addToFavourites(widget._localDataManager.data.cityName);
             });
           });
     }

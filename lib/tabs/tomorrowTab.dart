@@ -25,7 +25,7 @@ class TomorrowTab extends StatelessWidget {
         buildWindAndSunrise(context),
         buildHumidityAndSunset(context),
         // VREME PO URAH
-        _data.buildHouryWeatherRows()
+        _data.buildHourlyWeatherRows()
       ]),
     ));
   }

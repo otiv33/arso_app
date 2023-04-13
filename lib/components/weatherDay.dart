@@ -41,7 +41,7 @@ class WeatherDay extends StatelessWidget {
                         child: Text(
                           _data.date,
                           textAlign: TextAlign.start,
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         ),
                       ),
                     ]),

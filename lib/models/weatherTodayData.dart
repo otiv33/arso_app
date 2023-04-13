@@ -47,7 +47,7 @@ class WeatherTodayData {
     return wToday;
   }
 
-  Column buildHouryWeatherRows() {
+  Column buildHourlyWeatherRows() {
     return Column(
         children: weatherHourData.map((data) => WeatherHour(data)).toList());
   }

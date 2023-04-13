@@ -7,6 +7,12 @@ class WeatherHourData {
   String weatherIcon = "";
   String windIcon = "";
   String windSpeed = "";
+  String windDescription = "";
+  String windGustSpeed = "";
+  String humidity = "";
+  String humidityDescription = "";
+  String rainfall = "";
+  String cloudHeight = "";
 
   // dayIndex = [0]-today, [1]-tomorrow
   List<WeatherHourData> listFromJson(json, dayIndex) {
@@ -21,6 +27,12 @@ class WeatherHourData {
       wHour.weatherIcon = nullCheck(el['clouds_icon_wwsyn_icon']);
       wHour.windIcon = nullCheck(el['ddff_icon']);
       wHour.windSpeed = nullCheck(el['ff_val']);
+      wHour.windDescription = nullCheck(el['ff_shortText']);
+      wHour.windGustSpeed = nullCheck(el['ffmax_val']);
+      wHour.humidity = nullCheck(el['rh']);
+      wHour.humidityDescription = nullCheck(el['rh_shortText']);
+      wHour.rainfall = nullCheck(el['tp_acc']);
+      wHour.cloudHeight = nullCheck(el['cloudBase_shortText']);
       listWHour.add(wHour);
       lastHour = DateTime.parse(el['valid']).toLocal();
     }
@@ -37,6 +49,12 @@ class WeatherHourData {
         wHour.weatherIcon = nullCheck(el['clouds_icon_wwsyn_icon']);
         wHour.windIcon = nullCheck(el['ddff_icon']);
         wHour.windSpeed = nullCheck(el['ff_val']);
+        wHour.windDescription = nullCheck(el['ff_shortText']);
+        wHour.windGustSpeed = nullCheck(el['ffmax_val']);
+        wHour.humidity = nullCheck(el['rh']);
+        wHour.humidityDescription = nullCheck(el['rh_shortText']);
+        wHour.rainfall = nullCheck(el['tp_acc']);
+        wHour.cloudHeight = nullCheck(el['cloudBase_shortText']);
         listWHour.add(wHour);
         lastHour = DateTime.parse(el['valid']).toLocal();
       }
