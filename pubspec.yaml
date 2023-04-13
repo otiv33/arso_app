@@ -58,7 +58,7 @@ flutter_icons:
 # 3) flutter pub run flutter_native_splash:create
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/mobile_icons/splash.png
+  image: assets/mobile_icons/splash-new.png
   android: true
   ios: true
   web: false

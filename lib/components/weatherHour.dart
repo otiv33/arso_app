@@ -186,7 +186,7 @@ class _WeatherHourState extends State<WeatherHour> {
                                 if (widget.data.windGustSpeed != "")
                                   Text("${widget.data.windGustSpeed} km/h")
                                 else
-                                  const Text("-")
+                                  const Text("/")
                               ],
                             ),
                           ),

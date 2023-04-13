@@ -136,8 +136,7 @@ class _WeatherDayState extends State<WeatherDay> {
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(15, 7, 15, 7),
+                                padding: const EdgeInsets.fromLTRB(0, 7, 0, 7),
                                 child: Image(
                                   image: AssetImage(
                                       'assets/icons/${widget.data.nightWeatherIcon}.png'),
@@ -159,8 +158,7 @@ class _WeatherDayState extends State<WeatherDay> {
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(15, 7, 15, 7),
+                                padding: const EdgeInsets.fromLTRB(0, 7, 0, 7),
                                 child: Image(
                                   image: AssetImage(
                                       'assets/icons/${widget.data.morningWeatherIcon}.png'),
@@ -182,8 +180,7 @@ class _WeatherDayState extends State<WeatherDay> {
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(15, 7, 15, 7),
+                                padding: const EdgeInsets.fromLTRB(0, 7, 0, 7),
                                 child: Image(
                                   image: AssetImage(
                                       'assets/icons/${widget.data.dayWeatherIcon}.png'),
@@ -205,8 +202,7 @@ class _WeatherDayState extends State<WeatherDay> {
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(15, 7, 15, 7),
+                                padding: const EdgeInsets.fromLTRB(0, 7, 0, 7),
                                 child: Image(
                                   image: AssetImage(
                                       'assets/icons/${widget.data.eveningWeatherIcon}.png'),
@@ -293,14 +289,22 @@ class _WeatherDayState extends State<WeatherDay> {
                                     style:
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
-                                  Text(
-                                    "${widget.data.windDescription}, ",
-                                  ),
-                                  Text(
-                                    "${widget.data.windSpeed} km/h",
-                                    style:
-                                        Theme.of(context).textTheme.bodyLarge,
-                                  ),
+                                  Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(5),
+                                        child: Text(
+                                          " ${widget.data.windDescription}, ",
+                                        ),
+                                      ),
+                                      Text(
+                                        "${widget.data.windSpeed} km/h",
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyLarge,
+                                      ),
+                                    ],
+                                  )
                                 ],
                               ),
                             ),
@@ -316,7 +320,7 @@ class _WeatherDayState extends State<WeatherDay> {
                                   if (widget.data.windGustSpeed != "")
                                     Text("${widget.data.windGustSpeed} km/h")
                                   else
-                                    const Text("-")
+                                    const Text("/")
                                 ],
                               ),
                             ),
