@@ -13,15 +13,10 @@ class InfoDrawer extends StatefulWidget {
   }
 
   @override
-  State<InfoDrawer> createState() => _InfoDrawerState(_localDataManager);
+  State<InfoDrawer> createState() => _InfoDrawerState();
 }
 
 class _InfoDrawerState extends State<InfoDrawer> {
-  late LocalDataManager _localDataManager;
-  _InfoDrawerState(LocalDataManager localDataManager) {
-    _localDataManager = localDataManager;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -49,7 +44,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
   }
 
   Widget buildFavouriteRow(BuildContext context) {
-    List<Widget> favouriteCities = _localDataManager.data.favouriteCities
+    List<Widget> favouriteCities = widget._localDataManager.data.favouriteCities
         .map((city) => Container(
             decoration: const BoxDecoration(
                 border: Border(
@@ -63,7 +58,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
                   child: IconButton(
                       onPressed: () {
                         setState(() {
-                          _localDataManager.removeFromFavourites(city);
+                          widget._localDataManager.removeFromFavourites(city);
                         });
                       },
                       icon: const Icon(
@@ -79,8 +74,8 @@ class _InfoDrawerState extends State<InfoDrawer> {
                         style: Theme.of(context).textTheme.bodyText2,
                       ),
                       onTap: () {
-                        _localDataManager.data.cityName = city;
-                        _localDataManager.updateLocalDataFile();
+                        widget._localDataManager.data.cityName = city;
+                        widget._localDataManager.updateLocalDataFile();
                         Navigator.pop(context);
                       }),
                 ),
@@ -127,7 +122,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
                     OutlinedButton(
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white),
+                            side: const BorderSide(color: Colors.white),
                             borderRadius: BorderRadius.circular(30.0))),
                         foregroundColor:
                             MaterialStateProperty.all<Color>(Colors.white),
