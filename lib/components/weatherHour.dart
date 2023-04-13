@@ -14,7 +14,6 @@ class WeatherHour extends StatefulWidget {
 
 class _WeatherHourState extends State<WeatherHour> {
   bool showDetails = false;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
