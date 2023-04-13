@@ -115,7 +115,7 @@ class _WeatherHourState extends State<WeatherHour> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
                           child: Row(
                             children: [
                               Text(
@@ -127,23 +127,11 @@ class _WeatherHourState extends State<WeatherHour> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(5),
+                          padding: const EdgeInsets.fromLTRB(0, 5, 5, 5),
                           child: Row(
                             children: [
                               Text(
-                                "Višina oblačnosti : ",
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                              Text(widget.data.cloudHeight),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Količina padavin : ",
+                                "Padavine :",
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),
                               const Image(
@@ -151,6 +139,18 @@ class _WeatherHourState extends State<WeatherHour> {
                                   width: 20,
                                   height: 20),
                               Text("${widget.data.rainfall} mm"),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 5, 5, 10),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Višina oblačnosti : ",
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              Text(widget.data.cloudHeight),
                             ],
                           ),
                         ),
