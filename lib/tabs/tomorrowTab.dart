@@ -32,7 +32,7 @@ class TomorrowTab extends StatelessWidget {
 
   Widget buildTodayDate(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.fromLTRB(15, 15, 5, 0),
+        padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

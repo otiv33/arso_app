@@ -46,6 +46,7 @@ dependencies:
   url_launcher: ^6.1.7
   rename: ^2.0.1
   photo_view: ^0.14.0
+  home_widget: ^0.2.0+1
 
 flutter_icons:
   image_path: "assets/mobile_icons/ic_launcher.png"

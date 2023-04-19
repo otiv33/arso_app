@@ -1,3 +1,4 @@
+import 'package:home_widget/home_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
@@ -51,4 +52,10 @@ Color getDefaultColor1() {
 // For background
 Color getDefaultColor2() {
   return const Color.fromARGB(255, 5, 88, 136);
+}
+
+Future<void> updateAppWidget(String city) async {
+  await HomeWidget.saveWidgetData<String>('_city', city);
+  await HomeWidget.updateWidget(
+      name: 'HomeScreenWidgetProvider', iOSName: 'HomeScreenWidgetProvider');
 }
