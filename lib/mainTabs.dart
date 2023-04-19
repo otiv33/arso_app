@@ -38,6 +38,7 @@ class _MainTabs extends State<MainTabs> {
     await _localDataManager.getLocalDataInitial();
     await _getWeatherData();
     await _getCityList();
+    updateAppWidget(_localDataManager.data.cityName);
   }
 
   // GET WEATHER
@@ -56,7 +57,7 @@ class _MainTabs extends State<MainTabs> {
     String data = await DefaultAssetBundle.of(context)
         .loadString("assets/data/locations.json");
     var jsonResult = jsonDecode(data);
-    _cityListDelegate.UpdateCityList(List<String>.from(jsonResult));
+    _cityListDelegate.updateCityList(List<String>.from(jsonResult));
   }
 
   @override
@@ -88,11 +89,12 @@ class _MainTabs extends State<MainTabs> {
                     var newCity = showSearch(
                         context: context, delegate: _cityListDelegate);
                     // REFRESH WEATHER FOR NEW CITY
-                    newCity.then((value) {
-                      if (value! != "") {
-                        _localDataManager.data.cityName = value;
+                    newCity.then((city) {
+                      if (city! != "") {
+                        _localDataManager.data.cityName = city;
                         _getWeatherData();
                         _localDataManager.updateLocalDataFile();
+                        updateAppWidget(city);
                       }
                     });
                   },

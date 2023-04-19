@@ -4,7 +4,7 @@ import '../functions/functions.dart';
 class CitySearchDelegate extends SearchDelegate<String> {
   List<String> searchResults = [];
 
-  void UpdateCityList(List<String> cityList) {
+  void updateCityList(List<String> cityList) {
     searchResults = cityList;
   }
 
@@ -56,7 +56,7 @@ class CitySearchDelegate extends SearchDelegate<String> {
             city,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          onTap: () {
+          onTap: () async {
             query = city;
             close(context, city);
           },
