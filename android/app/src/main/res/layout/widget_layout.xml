@@ -22,10 +22,11 @@
             <TextView
                 android:id="@+id/tv_city"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50sp"
                 android:layout_weight="1"
                 android:ellipsize="none"
                 android:gravity="center"
+                android:text="Nalaganje, odprite aplikacijo"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp" />
 
@@ -35,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textColor="#ffffff"
+                android:text="/ °C"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -51,8 +53,9 @@
                 android:id="@+id/i_weather_current"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginTop="5pt"
                 android:layout_weight="1"
-                android:src="@drawable/launch_background" />
+                android:src="@android:drawable/ic_menu_recent_history" />
 
         </LinearLayout>
 
@@ -78,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/launch_background" />
+                android:src="@android:drawable/ic_menu_recent_history" />
 
             <TextView
                 android:id="@+id/tv_temp_hour1"
@@ -113,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/launch_background" />
+                android:src="@android:drawable/ic_menu_recent_history" />
 
             <TextView
                 android:id="@+id/tv_temp_hour2"
@@ -148,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:src="@drawable/launch_background" />
+                android:src="@android:drawable/ic_menu_recent_history" />
 
             <TextView
                 android:id="@+id/tv_temp_hour3"
