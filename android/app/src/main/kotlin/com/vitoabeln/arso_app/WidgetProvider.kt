@@ -49,104 +49,111 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
             views.setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
             // Get city
-            val city: String = widgetData.getString("_city", "None") as String
-            if(city != "None"){
-                val cCount: Int = city.length
-                var textSize: Float = 0.0F
-
-                if (cCount < 9)
-                    textSize = 12.0F
-                else
-                    if (cCount < 30)
-                        textSize = 11.0F
-                    else
-                        textSize = 10.0F
-               views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, textSize)
-
-                views.setTextViewText(R.id.tv_city, city)
-
-                val queue = Volley.newRequestQueue(context)
-                val url = "https://vreme.arso.gov.si/api/1.0/location/?location=" + city
-                val stringRequest = StringRequest(Request.Method.GET, url,
-                    Response.Listener<String> { response ->
-                        val jsonObject = JSONTokener(response).nextValue() as JSONObject
-                        val loader = FlutterInjector.instance().flutterLoader()
-                        val assetManager: AssetManager = context.getAssets()
-
-
-                        // Current
-                        val observation = ((((((((jsonObject["observation"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)[0] as JSONObject)["timeline"] as JSONArray)[0] as JSONObject
-                        val current_temp = observation["t"] as String + " °C"
-                        views.setTextViewText(R.id.tv_temp_now, current_temp)
-
-                        val current_icon = observation["clouds_icon_wwsyn_icon"] as String
-                        val b_current_icon = this.load_image(current_icon, loader, assetManager) as Bitmap
-                        views.setImageViewBitmap(R.id.i_weather_current, b_current_icon)
-
-                        // Hour
-                        val days = ((((((jsonObject["forecast1h"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)
-                        val hourToday = (days[0] as JSONObject)["timeline"] as JSONArray
-
-                        // Hour1
-                        var hour1 = hourToday.opt(0)
-                        if (hour1 != null){
-                            hour1 = hour1 as JSONObject
-                        }else{
-                            hour1 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(0) as JSONObject
-                        }
-                        val hour1_temp = hour1["t"] as String + " °C"
-                        views.setTextViewText(R.id.tv_temp_hour1, hour1_temp)
-
-                        val hour1_time = hour1["valid"] as String
-                        views.setTextViewText(R.id.tv_hour1, this.format_time(hour1_time))
-
-                        val hour1_icon = hour1["clouds_icon_wwsyn_icon"] as String
-                        val b_hour1_icon = this.load_image(hour1_icon, loader, assetManager) as Bitmap
-                        views.setImageViewBitmap(R.id.i_hour1, b_hour1_icon)
-
-                        // Hour2
-                        var hour2 = hourToday.opt(1)
-                        if (hour2 != null){
-                            hour2 = hour2 as JSONObject
-                        }else{
-                            hour2 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(1) as JSONObject
-                        }
-                        val hour2_temp = hour2["t"] as String + " °C"
-                        views.setTextViewText(R.id.tv_temp_hour2, hour2_temp)
-
-                        val hour2_time = hour2["valid"] as String
-                        views.setTextViewText(R.id.tv_hour2, this.format_time(hour2_time))
-
-                        val hour2_icon = hour2["clouds_icon_wwsyn_icon"] as String
-                        val b_hour2_icon = this.load_image(hour2_icon, loader, assetManager) as Bitmap
-                        views.setImageViewBitmap(R.id.i_hour2, b_hour2_icon)
-
-                        // Hour3
-                        var hour3 = hourToday.opt(2)
-                        if (hour3 != null){
-                            hour3 = hour3 as JSONObject
-                        }else{
-                            hour3 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(2) as JSONObject
-                        }
-                        val hour3_temp = hour3["t"] as String + " °C"
-                        views.setTextViewText(R.id.tv_temp_hour3, hour3_temp)
-
-                        val hour3_time = hour3["valid"] as String
-                        views.setTextViewText(R.id.tv_hour3, this.format_time(hour3_time))
-
-                        val hour3_icon = hour3["clouds_icon_wwsyn_icon"] as String
-                        val b_hour3_icon = this.load_image(hour3_icon, loader, assetManager) as Bitmap
-                        views.setImageViewBitmap(R.id.i_hour3, b_hour3_icon)
-
-                        appWidgetManager.updateAppWidget(widgetId, views)
-                    },
-                    Response.ErrorListener {
-                        appWidgetManager.updateAppWidget(widgetId, views)
-                    })
-                queue.add(stringRequest)
+            var city: String = widgetData.getString("_city", "None") as String
+            if(city == "None"){
+                val loader = FlutterInjector.instance().flutterLoader()
+                val key = loader.getLookupKeyForAsset("assets/data/localData.json")
+                val res: String = context.getAssets().open(key).readBytes().toString(Charsets.UTF_8)
+                val jsonObject = JSONTokener(res).nextValue() as JSONObject
+                city = jsonObject["cityName"].toString()
             }
 
+
+            val cCount: Int = city.length
+            var textSize: Float = 0.0F
+
+            if (cCount < 9)
+                textSize = 12.0F
+            else
+                if (cCount < 30)
+                    textSize = 11.0F
+                else
+                    textSize = 10.0F
+            views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, textSize)
+            views.setTextViewText(R.id.tv_city, city)
+
+            val queue = Volley.newRequestQueue(context)
+            val url = "https://vreme.arso.gov.si/api/1.0/location/?location=" + city
+            val stringRequest = StringRequest(Request.Method.GET, url,
+                Response.Listener<String> { response ->
+                    val jsonObject = JSONTokener(response).nextValue() as JSONObject
+                    val loader = FlutterInjector.instance().flutterLoader()
+                    val assetManager: AssetManager = context.getAssets()
+
+
+                    // Current
+                    val observation = ((((((((jsonObject["observation"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)[0] as JSONObject)["timeline"] as JSONArray)[0] as JSONObject
+                    val current_temp = observation["t"] as String + " °C"
+                    views.setTextViewText(R.id.tv_temp_now, current_temp)
+
+                    val current_icon = observation["clouds_icon_wwsyn_icon"] as String
+                    val b_current_icon = this.load_image(current_icon, loader, assetManager) as Bitmap
+                    views.setImageViewBitmap(R.id.i_weather_current, b_current_icon)
+
+                    // Hour
+                    val days = ((((((jsonObject["forecast1h"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)
+                    val hourToday = (days[0] as JSONObject)["timeline"] as JSONArray
+
+                    // Hour1
+                    var hour1 = hourToday.opt(0)
+                    if (hour1 != null){
+                        hour1 = hour1 as JSONObject
+                    }else{
+                        hour1 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(0) as JSONObject
+                    }
+                    val hour1_temp = hour1["t"] as String + " °C"
+                    views.setTextViewText(R.id.tv_temp_hour1, hour1_temp)
+
+                    val hour1_time = hour1["valid"] as String
+                    views.setTextViewText(R.id.tv_hour1, this.format_time(hour1_time))
+
+                    val hour1_icon = hour1["clouds_icon_wwsyn_icon"] as String
+                    val b_hour1_icon = this.load_image(hour1_icon, loader, assetManager) as Bitmap
+                    views.setImageViewBitmap(R.id.i_hour1, b_hour1_icon)
+
+                    // Hour2
+                    var hour2 = hourToday.opt(1)
+                    if (hour2 != null){
+                        hour2 = hour2 as JSONObject
+                    }else{
+                        hour2 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(1) as JSONObject
+                    }
+                    val hour2_temp = hour2["t"] as String + " °C"
+                    views.setTextViewText(R.id.tv_temp_hour2, hour2_temp)
+
+                    val hour2_time = hour2["valid"] as String
+                    views.setTextViewText(R.id.tv_hour2, this.format_time(hour2_time))
+
+                    val hour2_icon = hour2["clouds_icon_wwsyn_icon"] as String
+                    val b_hour2_icon = this.load_image(hour2_icon, loader, assetManager) as Bitmap
+                    views.setImageViewBitmap(R.id.i_hour2, b_hour2_icon)
+
+                    // Hour3
+                    var hour3 = hourToday.opt(2)
+                    if (hour3 != null){
+                        hour3 = hour3 as JSONObject
+                    }else{
+                        hour3 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(2) as JSONObject
+                    }
+                    val hour3_temp = hour3["t"] as String + " °C"
+                    views.setTextViewText(R.id.tv_temp_hour3, hour3_temp)
+
+                    val hour3_time = hour3["valid"] as String
+                    views.setTextViewText(R.id.tv_hour3, this.format_time(hour3_time))
+
+                    val hour3_icon = hour3["clouds_icon_wwsyn_icon"] as String
+                    val b_hour3_icon = this.load_image(hour3_icon, loader, assetManager) as Bitmap
+                    views.setImageViewBitmap(R.id.i_hour3, b_hour3_icon)
+
+                    appWidgetManager.updateAppWidget(widgetId, views)
+                },
+                Response.ErrorListener {
+                    appWidgetManager.updateAppWidget(widgetId, views)
+                })
+            queue.add(stringRequest)
         }
+
+
 
 
     }

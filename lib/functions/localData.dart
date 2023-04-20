@@ -28,7 +28,7 @@ class LocalDataManager {
     } else {
       File file = await File(_path).create(recursive: true);
       String sample =
-          '{"cityName":"Maribor","defaultCity":"Ljubljana","favouriteCities":[]}';
+          '{"cityName":"Maribor","defaultCity":"Maribor","favouriteCities":[]}';
       file.writeAsString(sample);
       return LocalData.fromJson(jsonDecode(sample));
     }
