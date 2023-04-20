@@ -31,15 +31,14 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
         return BitmapFactory.decodeStream(inputStream)
     }
 
-    fun format_time(hour: String): String {
+    fun format_time(hourToday: String): String {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // Slovenia +2h UTC
-            return ZonedDateTime.parse(hour).plusHours(2).toLocalTime().toString()
+            return ZonedDateTime.parse(hourToday).plusHours(2).toLocalTime().toString()
         } else {
-            return hour.split("([0-1][0-9]|2[0-3]):[0-5][0-9]")[0]
+            return hourToday.split("([0-1][0-9]|2[0-3]):[0-5][0-9]")[0]
         };
     }
-
 
      override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray, widgetData: SharedPreferences) {
         appWidgetIds.forEach { widgetId ->
@@ -52,27 +51,17 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
             // Get city
             val city: String = widgetData.getString("_city", "None") as String
             if(city != "None"){
-
-                // Letališče Jožeta Pučnika Ljubljana -> Max 34 characters
-                // Šmartno pri Slovenj Gradcu -> 26
-                // Letališče Cerklje ob Krki -> 25
-                // Letališče Portorož -> 18
                 val cCount: Int = city.length
-                if(cCount < 20){
-                    views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, 16.0F)
-                }else{
-                    if (cCount < 25){
-                        views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, 14.0F)
-                    }else{
-                        if (cCount < 30){
-                            views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, 12.0F)
-                        }else{
-                            views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, 10.0F)
-                        }
-                    }
-                }
+                var textSize: Float = 0.0F
 
-
+                if (cCount < 9)
+                    textSize = 12.0F
+                else
+                    if (cCount < 30)
+                        textSize = 11.0F
+                    else
+                        textSize = 10.0F
+               views.setTextViewTextSize(R.id.tv_city, TypedValue.COMPLEX_UNIT_SP, textSize)
 
                 views.setTextViewText(R.id.tv_city, city)
 
@@ -94,53 +83,60 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                         val b_current_icon = this.load_image(current_icon, loader, assetManager) as Bitmap
                         views.setImageViewBitmap(R.id.i_weather_current, b_current_icon)
 
+                        // Hour
+                        val days = ((((((jsonObject["forecast1h"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)
+                        val hourToday = (days[0] as JSONObject)["timeline"] as JSONArray
+
                         // Hour1
-                        val hour = (((((((jsonObject["forecast1h"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)[0] as JSONObject)["timeline"] as JSONArray
-                        val hour1_temp = (hour[0] as JSONObject)["t"] as String + " °C"
+                        var hour1 = hourToday.opt(0)
+                        if (hour1 != null){
+                            hour1 = hour1 as JSONObject
+                        }else{
+                            hour1 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(0) as JSONObject
+                        }
+                        val hour1_temp = hour1["t"] as String + " °C"
                         views.setTextViewText(R.id.tv_temp_hour1, hour1_temp)
 
-                        val hour1 = (hour[0] as JSONObject)["valid"] as String
-                        views.setTextViewText(R.id.tv_hour1, this.format_time(hour1))
+                        val hour1_time = hour1["valid"] as String
+                        views.setTextViewText(R.id.tv_hour1, this.format_time(hour1_time))
 
-
-                        val hour1_icon = (hour[0] as JSONObject)["clouds_icon_wwsyn_icon"] as String
+                        val hour1_icon = hour1["clouds_icon_wwsyn_icon"] as String
                         val b_hour1_icon = this.load_image(hour1_icon, loader, assetManager) as Bitmap
                         views.setImageViewBitmap(R.id.i_hour1, b_hour1_icon)
 
                         // Hour2
-                        val hour2_temp = (hour[1] as JSONObject)["t"] as String + " °C"
+                        var hour2 = hourToday.opt(1)
+                        if (hour2 != null){
+                            hour2 = hour2 as JSONObject
+                        }else{
+                            hour2 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(1) as JSONObject
+                        }
+                        val hour2_temp = hour2["t"] as String + " °C"
                         views.setTextViewText(R.id.tv_temp_hour2, hour2_temp)
 
-                        val hour2 = (hour[1] as JSONObject)["valid"] as String
-                        views.setTextViewText(R.id.tv_hour2, this.format_time(hour2))
+                        val hour2_time = hour2["valid"] as String
+                        views.setTextViewText(R.id.tv_hour2, this.format_time(hour2_time))
 
-                        val hour2_icon = (hour[1] as JSONObject)["clouds_icon_wwsyn_icon"] as String
+                        val hour2_icon = hour2["clouds_icon_wwsyn_icon"] as String
                         val b_hour2_icon = this.load_image(hour2_icon, loader, assetManager) as Bitmap
                         views.setImageViewBitmap(R.id.i_hour2, b_hour2_icon)
 
                         // Hour3
-                        val hour3_temp = (hour[1] as JSONObject)["t"] as String + " °C"
+                        var hour3 = hourToday.opt(2)
+                        if (hour3 != null){
+                            hour3 = hour3 as JSONObject
+                        }else{
+                            hour3 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(2) as JSONObject
+                        }
+                        val hour3_temp = hour3["t"] as String + " °C"
                         views.setTextViewText(R.id.tv_temp_hour3, hour3_temp)
 
-                        val hour3 = (hour[1] as JSONObject)["valid"] as String
-                        views.setTextViewText(R.id.tv_hour3, this.format_time(hour3))
+                        val hour3_time = hour3["valid"] as String
+                        views.setTextViewText(R.id.tv_hour3, this.format_time(hour3_time))
 
-                        val hour3_icon = (hour[1] as JSONObject)["clouds_icon_wwsyn_icon"] as String
+                        val hour3_icon = hour3["clouds_icon_wwsyn_icon"] as String
                         val b_hour3_icon = this.load_image(hour3_icon, loader, assetManager) as Bitmap
                         views.setImageViewBitmap(R.id.i_hour3, b_hour3_icon)
-
-                        // TODO MIDNIGHT TIME !!!
-
-                        // // Hour4
-                        // val hour4_temp = (hour[1] as JSONObject)["t"] as String + " °C"
-                        // views.setTextViewText(R.id.tv_temp_hour4, hour4_temp)
-
-                        // val hour4 = (hour[1] as JSONObject)["valid"] as String
-                        // views.setTextViewText(R.id.tv_hour4, this.format_time(hour4))
-
-                        // val hour4_icon = (hour[1] as JSONObject)["clouds_icon_wwsyn_icon"] as String
-                        // val b_hour4_icon = this.load_image(hour4_icon, loader, assetManager) as Bitmap
-                        // views.setImageViewBitmap(R.id.i_hour4, b_hour4_icon)
 
                         appWidgetManager.updateAppWidget(widgetId, views)
                     },
