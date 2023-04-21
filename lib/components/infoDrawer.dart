@@ -71,7 +71,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
                   child: ListTile(
                       title: Text(
                         city,
-                        style: Theme.of(context).textTheme.bodyText2,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       onTap: () {
                         widget._localDataManager.data.cityName = city;
