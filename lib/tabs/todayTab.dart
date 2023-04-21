@@ -1,5 +1,6 @@
 import 'package:arso_app/components/favouriteStar.dart';
 import 'package:flutter/material.dart';
+import '../components/updateInfoDialog.dart';
 import '../functions/functions.dart';
 import '../models/weatherTodayData.dart';
 import 'package:arso_app/functions/localData.dart';
@@ -27,6 +28,8 @@ class TodayTab extends StatelessWidget {
             buildHumidityAndSunset(context),
             // VREME PO URAH
             _data.buildHourlyWeatherRows(),
+            // Check for update
+            const UpdateInfoDialog()
           ]),
         ));
   }
