@@ -2,6 +2,7 @@ package com.vitoabeln.arso_app
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.AssetManager
 import android.graphics.Bitmap
@@ -9,6 +10,7 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.util.TypedValue
 import android.widget.RemoteViews
+import androidx.annotation.RequiresApi
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -21,6 +23,8 @@ import org.json.JSONArray
 import org.json.JSONObject
 import org.json.JSONTokener
 import java.io.InputStream
+import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.ZonedDateTime
 
 
@@ -40,6 +44,12 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
         };
     }
 
+    override fun onReceive(context: Context?, intent: Intent?) {
+        print(intent.toString())
+        super.onReceive(context, intent)
+    }
+
+     @RequiresApi(Build.VERSION_CODES.O)
      override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray, widgetData: SharedPreferences) {
         appWidgetIds.forEach { widgetId ->
             val views = RemoteViews(context.packageName, R.layout.widget_layout)
@@ -57,7 +67,6 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                 val jsonObject = JSONTokener(res).nextValue() as JSONObject
                 city = jsonObject["cityName"].toString()
             }
-
 
             val cCount: Int = city.length
             var textSize: Float = 0.0F
@@ -84,6 +93,7 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                     // Current
                     val observation = ((((((((jsonObject["observation"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)[0] as JSONObject)["timeline"] as JSONArray)[0] as JSONObject
                     val current_temp = observation["t"] as String + " °C"
+                    // val current_temp = LocalDateTime.now().toString()
                     views.setTextViewText(R.id.tv_temp_now, current_temp)
 
                     val current_icon = observation["clouds_icon_wwsyn_icon"] as String
@@ -148,6 +158,7 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                     appWidgetManager.updateAppWidget(widgetId, views)
                 },
                 Response.ErrorListener {
+                    views.setTextViewText(R.id.tv_temp_hour1, "ERROR")
                     appWidgetManager.updateAppWidget(widgetId, views)
                 })
             queue.add(stringRequest)

@@ -1,14 +1,47 @@
 import 'package:arso_app/mainTabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:workmanager/workmanager.dart';
 
-void main() {
+import 'functions/functions.dart';
+import 'functions/localData.dart';
+
+const refreshHomeScreenWidget = "refreshHomeScreenWidget";
+
+// MAIN
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Workmanager
+  await Workmanager().initialize(
+    wmCallbackDispatcher,
+    isInDebugMode: true,
+  );
+  await Workmanager().registerPeriodicTask(
+    "1",
+    refreshHomeScreenWidget,
+    frequency: const Duration(minutes: 15),
+    constraints: Constraints(
+      networkType: NetworkType.connected,
+    ),
+  );
+  // Orientation lock
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]).then((value) => runApp(const MyApp()));
+  ]);
+
   runApp(const MyApp());
+}
+
+void wmCallbackDispatcher() {
+  Workmanager().executeTask((task, inputData) async {
+    if (task == refreshHomeScreenWidget) {
+      var dm = LocalDataManager();
+      await dm.getLocalDataInitial();
+      updateAppWidget(dm.data.cityName);
+    }
+    return Future.value(true);
+  });
 }
 
 // ROOT

@@ -26,12 +26,7 @@ class _UpdateInfoDialogState extends State<UpdateInfoDialog> {
     String currentVersion = packageInfo.version.toString();
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? latestAppVersion = pref.getString("latestAppVersion");
-    if (latestAppVersion != null) {
-      if (int.parse(currentVersion) > int.parse(latestAppVersion)) {
-        _showDialog(context);
-        pref.setString("latestAppVersion", currentVersion);
-      }
-    } else {
+    if (currentVersion != latestAppVersion) {
       _showDialog(context);
       pref.setString("latestAppVersion", currentVersion);
     }
