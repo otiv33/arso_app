@@ -38,7 +38,7 @@ class _MainTabs extends State<MainTabs> {
     await _localDataManager.getLocalDataInitial();
     await _getWeatherData();
     await _getCityList();
-    updateAppWidget(_localDataManager.data.cityName);
+    // updateAppWidget(_localDataManager.data.cityName);
   }
 
   // GET WEATHER
