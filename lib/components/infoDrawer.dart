@@ -164,7 +164,7 @@ class _InfoDrawerState extends State<InfoDrawer> {
               },
           )),
           const Text('\nČe ti je aplikacija všeč se lahko zahvališ z majhno '
-              'donacijo in kupiš razvijalcem kakšno frutabelo 😊\n'),
+              'donacijo in kupiš razvijalcu kakšno frutabelo 😊\n'),
           KofiButton(
             kofiName: "Vito Abeln",
             kofiColor: KofiColor.Red,

@@ -51,6 +51,9 @@ dependencies:
   shared_preferences: ^2.1.0
   workmanager: ^0.5.1
   android_alarm_manager_plus: ^2.1.2
+  webview_flutter: ^4.2.0
+  percent_indicator: ^4.2.3
+  loader_overlay: ^2.2.0
 
 flutter_icons:
   image_path: "assets/mobile_icons/ic_launcher.png"

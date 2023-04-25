@@ -20,6 +20,7 @@ Future<void> main() async {
 
   runApp(const MyApp());
 
+  // Refresh widget every hour
   const int alarmId = 0;
   await AndroidAlarmManager.periodic(
       const Duration(hours: 1), alarmId, refreshWidget,
