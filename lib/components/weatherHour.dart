@@ -91,12 +91,23 @@ class _WeatherHourState extends State<WeatherHour> {
                           ),
                           child: Container(
                               padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
-                              child: Text(widget.data.windSpeed,
-                                  textAlign: TextAlign.right,
-                                  style: const TextStyle(
-                                      fontSize: 12.0,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.normal))),
+                              child: Row(
+                                children: [
+                                  Text(widget.data.windSpeed,
+                                      textAlign: TextAlign.right,
+                                      style: const TextStyle(
+                                          fontSize: 12.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.normal)),
+                                  const Padding(
+                                    padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
+                                    child: Text(
+                                      "km/h",
+                                      style: TextStyle(fontSize: 6.5),
+                                    ),
+                                  )
+                                ],
+                              )),
                         )
                       ],
                     )

@@ -98,7 +98,7 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                         try {
                             // Current
                             val observation = ((((((((jsonObject["observation"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)[0] as JSONObject)["timeline"] as JSONArray)[0] as JSONObject
-                            // val current_temp = observation["t"] as String + " °C"
+                            //val current_temp = observation["t"] as String + " °C"
                             val current_temp = LocalDateTime.now().toString().substring(11)
                             views.setTextViewText(R.id.tv_temp_now, current_temp)
 
@@ -115,7 +115,7 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                             val hourToday = (days[0] as JSONObject)["timeline"] as JSONArray
 
                             try {
-                                // Hour1
+                                // Hour +1
                                 var hour1 = hourToday.opt(0)
                                 if (hour1 != null){
                                     hour1 = hour1 as JSONObject
@@ -136,12 +136,12 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                             }
 
                             try {
-                                // Hour2
-                                var hour2 = hourToday.opt(1)
+                                // Hour +3
+                                var hour2 = hourToday.opt(2)
                                 if (hour2 != null){
                                     hour2 = hour2 as JSONObject
                                 }else{
-                                    hour2 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(1) as JSONObject
+                                    hour2 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(2) as JSONObject
                                 }
                                 val hour2_temp = hour2["t"] as String + " °C"
                                 views.setTextViewText(R.id.tv_temp_hour2, hour2_temp)
@@ -157,12 +157,12 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                             }
 
                             try {
-                                // Hour3
-                                var hour3 = hourToday.opt(2)
+                                // Hour +5
+                                var hour3 = hourToday.opt(4)
                                 if (hour3 != null){
                                     hour3 = hour3 as JSONObject
                                 }else{
-                                    hour3 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(2) as JSONObject
+                                    hour3 = ((days[1] as JSONObject)["timeline"] as JSONArray).get(4) as JSONObject
                                 }
                                 val hour3_temp = hour3["t"] as String + " °C"
                                 views.setTextViewText(R.id.tv_temp_hour3, hour3_temp)
@@ -185,8 +185,25 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                     }
                     appWidgetManager.updateAppWidget(widgetId, views)
                 },
-                Response.ErrorListener {
-                    views.setTextViewText(R.id.tv_temp_hour1, "ERROR")
+                Response.ErrorListener { error ->
+                    views.setTextViewText(R.id.tv_city, "No internet")
+                    views.setTextViewText(R.id.tv_temp_now, "/ °C")
+                    views.setTextViewText(R.id.tv_temp_hour1, "/ °C")
+                    views.setTextViewText(R.id.tv_temp_hour2, "/ °C")
+                    views.setTextViewText(R.id.tv_temp_hour3, "/ °C")
+
+                    views.setTextViewText(R.id.tv_hour1, "+1h")
+                    views.setTextViewText(R.id.tv_hour2, "+3h")
+                    views.setTextViewText(R.id.tv_hour3, "+5h")
+
+                    val loader = FlutterInjector.instance().flutterLoader()
+                    val assetManager: AssetManager = context.getAssets()
+
+                    val no_icon = this.load_image("no_icon", loader, assetManager) as Bitmap
+                    views.setImageViewBitmap(R.id.i_weather_current, no_icon)
+                    views.setImageViewBitmap(R.id.i_hour1, no_icon)
+                    views.setImageViewBitmap(R.id.i_hour2, no_icon)
+                    views.setImageViewBitmap(R.id.i_hour3, no_icon)
                     appWidgetManager.updateAppWidget(widgetId, views)
                 })
             queue.add(stringRequest)

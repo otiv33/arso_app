@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'dart:convert';
 
-import '../models/weatherHourData.dart';
 import '../models/weatherTomorrowData.dart';
 
 class ArsoApi {
@@ -15,8 +14,10 @@ class ArsoApi {
   }
 
   Future<Map<String, dynamic>> _getWeatherJson() async {
-    Response response = await http.get(Uri.parse(
-        'https://vreme.arso.gov.si/api/1.0/location/?location=$_cityName'));
+    Response response = await http
+        .get(Uri.parse(
+            'https://vreme.arso.gov.si/api/1.0/location/?location=$_cityName'))
+        .timeout(const Duration(seconds: 15));
     return jsonDecode(utf8.decode(response.bodyBytes));
   }
 
