@@ -29,7 +29,7 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
   final LocalDataManager _localDataManager = LocalDataManager();
   bool loaded = false;
   bool error = false;
-  String loadingMessage = "Nalaganje ...";
+  String loadingMessage = "";
 
   WeatherTodayData _todayData = WeatherTodayData();
   WeatherTomorrowData _tomorrowData = WeatherTomorrowData();
@@ -37,13 +37,7 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )..addListener(() {
-        setState(() {});
-      });
-    controller.repeat(reverse: false);
+    _initLoadingController();
     _initData();
     super.initState();
   }
@@ -54,18 +48,34 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  void _initLoadingController() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..addListener(() {
+        setState(() {});
+      });
+    controller.repeat(reverse: false);
+  }
+
   void _initData() async {
     await _localDataManager.getLocalDataInitial();
-    await _getWeatherData();
     await _getCityList();
-    updateAppWidget(_localDataManager.data.cityName);
-    if (!loaded) {
-      context.loaderOverlay.show();
-    }
+    await _getWeatherData();
   }
 
   // GET WEATHER
   Future _getWeatherData() async {
+    loadingMessage = "Nalaganje ...";
+    loaded = false;
+    error = false;
+    Future.delayed(const Duration(seconds: 3), () {
+      if (!loaded)
+        context.loaderOverlay.show();
+      else
+        context.loaderOverlay.hide();
+    });
+
     try {
       Weather weatherData =
           await ArsoApi(_localDataManager.data.cityName).getWeather();
@@ -76,11 +86,15 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
       });
       loaded = true;
     } on TimeoutException catch (_) {
-      loadingMessage = "Timeout exception";
+      loadingMessage = "Nalaganje je trajalo predolgo";
       error = true;
     } on SocketException catch (_) {
-      loadingMessage = "Socket exception";
+      loadingMessage = "Napaka pri nalaganju";
       error = true;
+    }
+    if (loaded) {
+      context.loaderOverlay.hide();
+      updateAppWidget(_localDataManager.data.cityName);
     }
   }
 
@@ -95,47 +109,9 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return LoaderOverlay(
-        useDefaultLoading: true,
+        useDefaultLoading: false,
         overlayOpacity: 0.8,
-        overlayWidget: Center(
-          child: Container(
-              decoration:
-                  const BoxDecoration(color: Color.fromARGB(255, 225, 5, 5)),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // const SizedBox(height: 50),
-                    Text(loadingMessage,
-                        style: const TextStyle(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            fontSize: 20)),
-                    // const SizedBox(height: 30),
-                    CircularProgressIndicator(
-                      value: controller.value,
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      strokeWidth: 5,
-                    ),
-                    // const SizedBox(height: 30),
-                    if (error)
-                      TextButton(
-                        // color: Color.fromARGB(255, 255, 255, 255),
-                        onPressed: () async => {
-                          print("ALOS"),
-                          (context as Element).markNeedsBuild(),
-                          // loaded = false,
-                          // error = false,
-                          // loadingMessage = "Nalaganje ...",
-                          // await _getWeatherData(),
-                          // await _getCityList(),
-                          // updateAppWidget(_localDataManager.data.cityName)
-                        },
-                        child: Text("Osveži"),
-                      )
-                    // icon: const Icon(Icons.refresh))
-                  ])),
-        ),
+        overlayWidget: buildLoading(),
         child: DefaultTabController(
             initialIndex: 0,
             length: 3,
@@ -166,13 +142,12 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
                           newCity.then((city) {
                             if (city! != "") {
                               _localDataManager.data.cityName = city;
-                              _getWeatherData();
                               _localDataManager.updateLocalDataFile();
-                              updateAppWidget(city);
+                              _getWeatherData();
                             }
                           });
                         },
-                        icon: const Icon(Icons.search),
+                        icon: const Icon(Icons.search, color: Colors.white),
                       ),
                     ],
                     bottom: const TabBar(
@@ -196,5 +171,57 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
                   ]),
                   floatingActionButton: const RadarImageDropdown()),
             )));
+  }
+
+  Widget buildLoading() {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(93, 0, 0, 0),
+      // const BoxDecoration(color: ),
+      body: Center(
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            const SizedBox(height: 50),
+            Text(loadingMessage,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255), fontSize: 20)),
+            const SizedBox(height: 30),
+            CircularProgressIndicator(
+              value: controller.value,
+              color: const Color.fromARGB(255, 255, 255, 255),
+              strokeWidth: 5,
+            ),
+            const SizedBox(height: 30),
+            if (error)
+              TextButton(
+                onPressed: () async => {
+                  (context as Element).markNeedsBuild(),
+                  Future.delayed(
+                      const Duration(milliseconds: 1000),
+                      () async => {
+                            await _getWeatherData(),
+                          }),
+                },
+                child: SizedBox(
+                    width: 100,
+                    height: 40,
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: 2)),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              Icon(Icons.refresh, color: Colors.white),
+                              Text("  Osveži",
+                                  style: TextStyle(color: Colors.white)),
+                            ]))),
+              )
+            // icon: )
+          ])),
+    );
   }
 }

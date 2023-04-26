@@ -43,6 +43,8 @@ class _UpdateInfoDialogState extends State<UpdateInfoDialog> {
           newFeature('Pogled podronnosti za 10 dnevno napoved po dnevih'),
           newFeature('Podatki o sončnem vzhodu in zahodu'),
           newFeature('Home screen widget'),
+          newFeature('Dodatne radarske slike'),
+          newFeature('Možnost osvežitve ob napaki nalaganja'),
           newFeature('Manjši tehnični in stilski popravki'),
           const Text(
               '\nINFO : Ob kliku na posamezno uro ali dan se sedaj prikaže '
