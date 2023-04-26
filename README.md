@@ -7,14 +7,14 @@ In the future we also want to publish the app for iOS when we get enought fundin
 
 ## Screenshots
 <p float="left">
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/1-app.jpg?raw=true" alt="Today view" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/2-app.jpg?raw=true" alt="Dropdown radar options" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/3-app.jpg?raw=true" alt="10 day view" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/4-app.jpg?raw=true" alt="Search" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/5-app.jpg?raw=true" alt="Favourites" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/6-app.jpg?raw=true" alt="Radar image fast" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/7-app.jpg?raw=true" alt="Radar image web" width="200"/>
-  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/8-app.jpg?raw=true" alt="Home screen widget" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/1-today.jpg?raw=true" alt="Today view" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/2-dropdown.jpg?raw=true" alt="Dropdown radar options" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/3-10day.jpg?raw=true" alt="10 day view" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/4-search.jpg?raw=true" alt="Search" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/5-favourites.jpg?raw=true" alt="Favourites" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/6-radarFast.jpg?raw=true" alt="Radar image fast" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/7-radarWeb.jpg?raw=true" alt="Radar image web" width="200"/>
+  <img src="https://github.com/otiv33/arso_app/blob/master/screenshots/8-widget.jpg?raw=true" alt="Home screen widget" width="200"/>
 </p>
 
 ## Sources
