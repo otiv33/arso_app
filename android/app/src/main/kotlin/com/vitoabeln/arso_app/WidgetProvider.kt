@@ -1,4 +1,4 @@
-package com.vitoabeln.arso_app
+package com.vitoabeln.arsovreme
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
