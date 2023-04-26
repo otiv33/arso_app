@@ -103,7 +103,7 @@ class _WeatherHourState extends State<WeatherHour> {
                                     padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
                                     child: Text(
                                       "km/h",
-                                      style: TextStyle(fontSize: 6.5),
+                                      style: TextStyle(fontSize: 6.0),
                                     ),
                                   )
                                 ],
