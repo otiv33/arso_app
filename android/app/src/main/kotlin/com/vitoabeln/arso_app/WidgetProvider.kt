@@ -98,8 +98,8 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
                         try {
                             // Current
                             val observation = ((((((((jsonObject["observation"] as JSONObject)["features"]) as JSONArray)[0] as JSONObject)["properties"] as JSONObject)["days"] as JSONArray)[0] as JSONObject)["timeline"] as JSONArray)[0] as JSONObject
-                            //val current_temp = observation["t"] as String + " °C"
-                            val current_temp = LocalDateTime.now().toString().substring(11)
+                            val current_temp = observation["t"] as String + " °C"
+                            // val current_temp = LocalDateTime.now().toString().substring(11)
                             views.setTextViewText(R.id.tv_temp_now, current_temp)
 
                             val current_icon = observation["clouds_icon_wwsyn_icon"] as String
