@@ -1,6 +1,6 @@
 # Unofficial ARSO weather app
 
-Unofficial ARSO weather app was created for as a university project for mobile development. The project was much inspired by the already existing (blue) ARSO weather application which can be found under (https://vreme.arso.gov.si/). The existing official ARSO website enables a PWA mobile application or shortcut to be installed on mobile devices. However that solution is quite slow and we wanted to create a faster native experience for android and iOS.<br>
+Unofficial ARSO weather app was created as a university project for mobile development. The project was inspired by the already existing (blue) ARSO weather application which can be found under (https://vreme.arso.gov.si/). The existing official ARSO website enables a PWA mobile application or shortcut to be installed on mobile devices. However that solution is quite slow and we wanted to create a faster native experience for android and iOS.<br>
 
 For now we managed to publish the application for Android on the Play store: [Link to the app](https://play.google.com/store/apps/details?id=com.vitoabeln.arsovreme&pli=1). 
 In the future we also want to publish the app for iOS when we get enought funding.
