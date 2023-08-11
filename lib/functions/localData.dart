@@ -1,9 +1,9 @@
+import 'dart:async' show Future;
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:arso_app/models/localData.dart';
 import 'package:path_provider/path_provider.dart';
-import 'dart:async' show Future;
 
 class LocalDataManager {
   String _path = "";
@@ -52,5 +52,20 @@ class LocalDataManager {
       data.favouriteCities.remove(city);
       updateLocalDataFile();
     }
+  }
+
+  void selectCity(String city) {
+    data.cityName = city;
+    updateLocalDataFile();
+  }
+
+  void onReorder(int oldIndex, int newIndex) {
+    try {
+      if (oldIndex < newIndex) newIndex -= 1;
+
+      final String city = data.favouriteCities.removeAt(oldIndex);
+      data.favouriteCities.insert(newIndex, city);
+      updateLocalDataFile();
+    } catch (_) {}
   }
 }
