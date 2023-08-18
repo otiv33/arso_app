@@ -116,6 +116,7 @@ class FavoriteCityTile extends StatelessWidget {
       color: Colors.transparent,
       key: key,
       child: ListTile(
+        contentPadding: const EdgeInsetsDirectional.only(start: 5, end: 20),
         shape: const Border(
           top: BorderSide(color: Colors.white, width: 0.3),
           bottom: BorderSide(color: Colors.white, width: 0.3),
@@ -133,6 +134,10 @@ class FavoriteCityTile extends StatelessWidget {
             Icons.remove_circle_outline,
             color: Colors.white,
           ),
+        ),
+        trailing: const Icon(
+          Icons.drag_handle,
+          color: Colors.white,
         ),
         onTap: onTap,
       ),
