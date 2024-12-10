@@ -91,6 +91,9 @@ class _MainTabs extends State<MainTabs> with TickerProviderStateMixin {
     } on SocketException catch (_) {
       loadingMessage = "Napaka pri nalaganju";
       error = true;
+    } on Exception catch (e) {
+      loadingMessage = "Napaka pri nalaganju, " + e.toString();
+      error = true;
     }
     if (loaded) {
       context.loaderOverlay.hide();

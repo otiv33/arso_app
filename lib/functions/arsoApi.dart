@@ -17,7 +17,7 @@ class ArsoApi {
     Response response = await http
         .get(Uri.parse(
             'https://vreme.arso.gov.si/api/1.0/location/?location=$_cityName'))
-        .timeout(const Duration(seconds: 15));
+        .timeout(const Duration(seconds: 60));
     return jsonDecode(utf8.decode(response.bodyBytes));
   }
 

@@ -70,7 +70,7 @@ class ReorderableFavoritesList extends StatelessWidget {
       return const Center(
         child: ListTile(
           title: Text(
-            "Ni priljubljenih mest ... ",
+            "Ni priljubljenih mest ... \n Nova mesta lahko dodate s klikom na zvezdico",
             textAlign: TextAlign.center,
           ),
         ),
